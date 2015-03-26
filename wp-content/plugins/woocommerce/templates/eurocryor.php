@@ -60,36 +60,44 @@ get_header( 'shop' ); ?>
 
  <div class="nav" id="tabs">
                     <?php
-                    $args = array(
+                    /*$args = array(
+
                         'number' => $number,
                         'orderby' => $orderby,
                         'order' => $order,
                         'hide_empty' => $hide_empty,
                         'include' => $ids
-                    );
- 
-                    $product_categories = get_terms('product_cat', $args);
+                    );*/
+ 					//woocommerce product category
+                   
+                    $product_category = wp_get_post_terms( $post->ID, 'product_cat');
+                    global $post;
+                    $terms = get_the_terms( $post->ID, 'product_cat', 'hide_empty=0'  );
+                    $args = array(
+                            'hierarchical' => 1,
+                           'show_option_none' => '',
+                           'hide_empty' => 0,
+                           'parent' => $category->term_id,
+                           'taxonomy' => 'product_cat'
+                        );
+                    $subcats = get_categories($product_category);
+                    //$wsubcats = get_categories($wsubargs);
+                   // $product_categories = get_terms('product_cat', $args);
                     ?>
                     <ul>
                       
  
                         <?php
                             $i = 0;
-                                foreach ($product_categories as $subcat) {
-                                    ?>
-                                    <li>
-         
-         
-                                        <a id="<?php echo $subcat->slug; ?>"
-                                           class="product-<?php echo $subcat->slug; ?><?php if ($i == 0) {
-                                               echo " active";
-                                           } ?>"
-                                           data-name="<?php echo $subcat->name; ?>"
-                                           href="#"><?php echo $subcat->name; ?></a>
-                                    </li>
-                                    <?php
-                                    $i++;
-                                }
+                                foreach ( $terms as $term ){
+                    $category_id = $term->term_id;
+                    $category_name = $term->name;
+                    $category_slug = $term->slug;
+
+                    echo '<li><a href="'. get_term_link($term->slug, 'product_cat') .'">'.$category_name.'</a></li>';
+
+
+                    }   
                         ?>
                     </ul>
                 </div>
@@ -97,13 +105,13 @@ get_header( 'shop' ); ?>
 <div class="product_content" id="tabs_container">
                 <?php
                 $i = 0;
-                foreach ($product_categories as $subcat) {
+                foreach ($terms as $cat) {
                     ?>
                     <div class="each_cat<?php if ($i == 0) {
                         echo " active";
-                    } ?>" id="product-<?php echo $subcat->slug; ?>">
+                    } ?>" id="product-<?php echo $cat->slug; ?>">
                         <?php
-                        echo do_shortcode('[product_category category="' . $subcat->name . '" per_page="12" columns="4" orderby="date" order="desc"]');
+                        echo do_shortcode('[product_category category="' . $cat->name . '" per_page="12" columns="4" orderby="date" order="desc"]');
                         ?></div>
                     <?php $i++;
                 } ?>
