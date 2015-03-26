@@ -70,17 +70,21 @@ get_header( 'shop' ); ?>
                     );*/
  					//woocommerce product category
                    
-                    $product_category = wp_get_post_terms( $post->ID, 'product_cat');
-                    global $post;
-                    $terms = get_the_terms( $post->ID, 'product_cat', 'hide_empty=0'  );
+                   
                     $args = array(
                             'hierarchical' => 1,
                            'show_option_none' => '',
                            'hide_empty' => 0,
-                           'parent' => $category->term_id,
+                           'parent' => $product_category,
                            'taxonomy' => 'product_cat'
                         );
-                    $subcats = get_categories($product_category);
+                    $subcats = get_categories($args);
+
+                    /*$product_category = wp_get_post_terms( $post->ID, 'product_cat');
+                    global $post;
+                    $terms = get_the_terms( $post->ID, 'product_cat', 'hide_empty=0'  );*/
+
+
                     //$wsubcats = get_categories($wsubargs);
                    // $product_categories = get_terms('product_cat', $args);
                     ?>
@@ -89,15 +93,21 @@ get_header( 'shop' ); ?>
  
                         <?php
                             $i = 0;
-                                foreach ( $terms as $term ){
-                    $category_id = $term->term_id;
-                    $category_name = $term->name;
-                    $category_slug = $term->slug;
-
-                    echo '<li><a href="'. get_term_link($term->slug, 'product_cat') .'">'.$category_name.'</a></li>';
-
-
-                    }   
+                               foreach ($subcats as $subcat) {
+                                    ?>
+                                    <li>
+         
+         
+                                        <a id="<?php echo $subcat->slug; ?>"
+                                           class="product-<?php echo $subcat->slug; ?><?php if ($i == 0) {
+                                               echo " active";
+                                           } ?>"
+                                           data-name="<?php echo $subcat->name; ?>"
+                                           href="#"><?php echo $subcat->name; ?></a>
+                                    </li>
+                                    <?php
+                                    $i++;
+                                }
                         ?>
                     </ul>
                 </div>
@@ -105,7 +115,7 @@ get_header( 'shop' ); ?>
 <div class="product_content" id="tabs_container">
                 <?php
                 $i = 0;
-                foreach ($terms as $cat) {
+                foreach ($subcats as $cat) {
                     ?>
                     <div class="each_cat<?php if ($i == 0) {
                         echo " active";

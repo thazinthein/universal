@@ -9,12 +9,12 @@
  * @version     2.0.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
-}
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 get_header( 'shop' ); ?>
-
+<div class="container">
+	<div class="row">
+		<div class="col-md-10">
 			<?php
 				/**
 				 * woocommerce_before_main_content hook
@@ -81,15 +81,28 @@ get_header( 'shop' ); ?>
 				do_action( 'woocommerce_after_main_content' );
 			?>
 
-			<?php
-				/**
-				 * woocommerce_sidebar hook
-				 *
-				 * @hooked woocommerce_get_sidebar - 10
-				 */
-				//do_action( 'woocommerce_sidebar' );
-			?>
+			
+		</div>
 
+		<div class="col-md-2">			
 
-		<?php get_footer( 'shop' ); ?>
+				<div id="sidebar" class="">
+							<div class="rightcol">			 				
 
+								<div id="recent-posts-3" class="widget widget_recent_entries">		
+									<h3 class="widgettitle">Products</h3>		
+										<nav class="rightnav" role="navigation">
+											<?php wp_nav_menu(array('menu'=> 'right-nav'));?>
+										</nav>
+								</div> <!-- end .widget --><!-- end .widget -->								
+								
+									
+								<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('homepage-random') ) : endif; ?>
+								
+
+							</div>
+				</div>
+		</div>
+	</div>
+</div>
+<?php get_footer( 'shop' ); ?>

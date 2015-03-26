@@ -40,7 +40,7 @@ elseif ( $cat_count >= 1 ) woocommerce_get_template( 'eurocryor.php' );
 
 
 // Online courses (videos) -- sub-categories
-//elseif ( $parent_cat == 'eurocryor' && $cat_count > 1 ) woocommerce_get_template( 'eurocryor.php' );
+elseif ( $parent_cat == 'eurocryor' && $cat_count > 1 ) woocommerce_get_template( 'eurocryor.php' );
 
 //elseif ( $parent_cat == 'eurocryor' && $cat_count == 1 ) woocommerce_get_template( 'eurocryor.php' );
 
