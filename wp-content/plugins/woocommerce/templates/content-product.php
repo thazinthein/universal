@@ -41,7 +41,7 @@ if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] )
 
 	<?php do_action( 'woocommerce_before_shop_loop_item' ); ?>
 
-	<a href="<?php the_permalink(); ?>" class = "none">
+	<a href="<?php the_permalink(); ?>">
 
 		<?php
 			/**
