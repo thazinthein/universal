@@ -9,9 +9,7 @@
  * @version     2.0.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
-}
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 get_header( 'shop' ); ?>
 <div class="container">
@@ -26,6 +24,8 @@ get_header( 'shop' ); ?>
 				 */
 				do_action( 'woocommerce_before_main_content' );
 			?>
+			
+
 
 				<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
 
@@ -48,11 +48,11 @@ get_header( 'shop' ); ?>
 					?>
 
 					<?php woocommerce_product_loop_start(); ?>
-
+					
 						<?php woocommerce_product_subcategories(); ?>
 
 						<?php while ( have_posts() ) : the_post(); ?>
-
+							<?php echo "Name"; ?>
 							<?php wc_get_template_part( 'content', 'product' ); ?>
 
 						<?php endwhile; // end of the loop. ?>
@@ -83,37 +83,10 @@ get_header( 'shop' ); ?>
 				do_action( 'woocommerce_after_main_content' );
 			?>
 
-			<?php
-				/**
-				 * woocommerce_sidebar hook
-				 *
-				 * @hooked woocommerce_get_sidebar - 10
-				 */
-				//do_action( 'woocommerce_sidebar' );
-			?>
+			
+		</div>
 
-	</div>
-	<div class="col-md-2">			
-
-				<div id="sidebar" class="">
-							<div class="rightcol">			 				
-
-								<div id="recent-posts-3" class="widget widget_recent_entries">		
-									<h3 class="widgettitle">Jobs Categories</h3>		
-										<nav class="rightnav" role="navigation">
-											<?php wp_nav_menu(array('menu'=> 'right-nav'));?>
-										</nav>
-								</div> <!-- end .widget --><!-- end .widget -->								
-								
-									
-								<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('homepage-random') ) : endif; ?>
-								
-
-							</div>
-				</div>
-			</div>
 		
 	</div>
 </div>
-		<?php get_footer( 'shop' ); ?>
-
+<?php get_footer( 'shop' ); ?>

@@ -240,6 +240,20 @@ add_action( 'widgets_init', 'guardian_widgets_init' );*/
 // define woocommerce_search_products()
 if ( function_exists('register_sidebar') ) {
 register_sidebar(array(
+'name' => 'Woo Catego',
+'id' => 'woo-catego',
+'description' => 'Appears as the sidebar on the custom homepage',
+'before_widget' => '<div style="height:5px"></div><li id="%1$s" class="widget %2$s">',
+'after_widget' => '</li>',
+'before_title' => '<h2 class="widgettitle">',
+'after_title' => '</h2>',
+));
+}   
+
+
+// define woocommerce_search_products()
+if ( function_exists('register_sidebar') ) {
+register_sidebar(array(
 'name' => 'Woo Search',
 'id' => 'homepage-sidebar',
 'description' => 'Appears as the sidebar on the custom homepage',
@@ -419,6 +433,77 @@ function my_woocommerce_continue_shopping_redirect( $return_to ) {
 add_filter( 'woocommerce_continue_shopping_redirect', 'my_woocommerce_continue_shopping_redirect', 20 );
 
 
+
+
+
+
+function woocommerce_subcats_from_parentcat_by_ID($parent_cat_ID) {
+ 
+   $args = array(
+ 
+       'hierarchical' => 1,
+ 
+       'show_option_none' => '',
+ 
+       'hide_empty' => 0,
+ 
+       'parent' => $parent_cat_ID,
+ 
+     'taxonomy' => 'product_cat'
+ 
+   );
+ 
+$subcats = get_categories($args);
+ 
+echo '<ul class="wooc_sclist">';
+ 
+foreach ($subcats as $sc) {
+ 
+       $link = get_term_link( $sc->slug, $sc->taxonomy );
+ 
+echo '<li><a href="'. $link .'">'.$sc->name.'</a></li>';
+ 
+     }
+ 
+echo '</ul>';
+ 
+}
+ 
+function woocommerce_subcats_from_parentcat_by_NAME($parent_cat_NAME) {
+ 
+$IDbyNAME = get_term_by('name', $parent_cat_NAME, 'product_cat');
+ 
+$product_cat_ID = $IDbyNAME->term_id;
+ 
+   $args = array(
+ 
+       'hierarchical' => 1,
+ 
+       'show_option_none' => '',
+ 
+       'hide_empty' => 0,
+ 
+       'parent' => $product_cat_ID,
+ 
+       'taxonomy' => 'product_cat'
+ 
+   );
+ 
+$subcats = get_categories($args);
+ 
+echo '<ul class="wooc_sclist">';
+ 
+foreach ($subcats as $sc) {
+ 
+       $link = get_term_link( $sc->slug, $sc->taxonomy );
+ 
+echo '<li><a href="'. $link .'">'.$sc->name.'</a></li>';
+ 
+     }
+ 
+echo '</ul>';
+ 
+}
 
 /*	add_action( 'wp_enqueue_scripts', 'include_waypoints' );
 	function include_waypoints() {

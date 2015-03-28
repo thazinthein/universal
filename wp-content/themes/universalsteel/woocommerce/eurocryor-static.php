@@ -9,11 +9,26 @@
  * @version     2.0.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
-}
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 get_header( 'shop' ); ?>
+<div class="pagehead">
+	<div class="container">
+        <div class="col-md-7 pagehead-title-bg">
+			<div class="pagehead-title">
+				
+					<h2><?php the_title(); ?></h2>
+				
+				
+				<div class="breadcurmb" id="breadcrumb">
+					<?php woocommerce_breadcrumb(); ?>
+				</div>
+
+			</div>
+		</div>
+		<div class="col-md-5 pagehead-title-bg-right"></div>
+	</div>
+</div>
 <div class="container">
 	<div class="row">
 		<div class="col-md-10">
@@ -26,6 +41,8 @@ get_header( 'shop' ); ?>
 				 */
 				do_action( 'woocommerce_before_main_content' );
 			?>
+			
+
 
 				<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
 
@@ -48,14 +65,23 @@ get_header( 'shop' ); ?>
 					?>
 
 					<?php woocommerce_product_loop_start(); ?>
+					
+						<?php //woocommerce_product_subcategories(); ?>
 
-						<?php woocommerce_product_subcategories(); ?>
+						
+							
+							<?php 
 
-						<?php while ( have_posts() ) : the_post(); ?>
+						echo do_shortcode ("[restabs alignment=osc-tabs-left responsive=false]
+							[restab title=Tab number 1 active=active][product_category category=Eurocryor][/restab]
+							[restab title=Tab number 2][product_categories columns=3 ids=<?php echo $subcat->slug; ?>][/restab]
+							[restab title=Tab number 2][product_categories number=12 parent=0][/restab]
+							[restab title=Tab number 3][product_category category=Radiance][/restab]
+							[restab title=Tab number 4][product_category columns=3 category=under-counter-type][/restab][/restabs]"); 
 
-							<?php wc_get_template_part( 'content', 'product' ); ?>
+						?>
 
-						<?php endwhile; // end of the loop. ?>
+						
 
 					<?php woocommerce_product_loop_end(); ?>
 
@@ -83,37 +109,10 @@ get_header( 'shop' ); ?>
 				do_action( 'woocommerce_after_main_content' );
 			?>
 
-			<?php
-				/**
-				 * woocommerce_sidebar hook
-				 *
-				 * @hooked woocommerce_get_sidebar - 10
-				 */
-				//do_action( 'woocommerce_sidebar' );
-			?>
+			
+		</div>
 
-	</div>
-	<div class="col-md-2">			
-
-				<div id="sidebar" class="">
-							<div class="rightcol">			 				
-
-								<div id="recent-posts-3" class="widget widget_recent_entries">		
-									<h3 class="widgettitle">Jobs Categories</h3>		
-										<nav class="rightnav" role="navigation">
-											<?php wp_nav_menu(array('menu'=> 'right-nav'));?>
-										</nav>
-								</div> <!-- end .widget --><!-- end .widget -->								
-								
-									
-								<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('homepage-random') ) : endif; ?>
-								
-
-							</div>
-				</div>
-			</div>
 		
 	</div>
 </div>
-		<?php get_footer( 'shop' ); ?>
-
+<?php get_footer( 'shop' ); ?>

@@ -24,7 +24,7 @@
 </div>
 
 <div class="container">
-        <div class="col-md-12">
+        <div class="col-md-10">
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 					
 				<article class="post" id="post-<?php the_ID(); ?>">
@@ -43,6 +43,14 @@
 				
 
 			<?php endwhile; endif; ?>
+		</div>
+		<div class="col-md-10">
+			<div class="widget"> 
+			    <?php  
+					if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('woo-catego') ) :
+				    endif; 
+				?>
+			</div>
 		</div>
 </div>
 

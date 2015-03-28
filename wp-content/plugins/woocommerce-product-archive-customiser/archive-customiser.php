@@ -2,7 +2,7 @@
 /*
 Plugin Name: WooCommerce Product Archive Customiser
 Plugin URI: http://jameskoster.co.uk/tag/product-archive-customiser/
-Version: 0.4.0
+Version: 0.5.0
 Description: Allows you to customise WooCommerce product archives. Change the number of product columns and the number of products displayed per page. Toggle the display of core elements and enable some that are not included in WooCommerce core such as stock levels and product categories.
 Author: jameskoster
 Tested up to: 3.9.1
@@ -302,8 +302,26 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 					$woo_per_page = $per_page;
 				}
 
+				// set action URL
+				if ( is_shop() ) {
+					$url = get_permalink( wc_get_page_id( 'shop' ) );
+				} elseif ( is_product_category() ) {
+					global $wp_query;
+					$cat = $wp_query->get_queried_object();
+					$url = get_term_link( $cat );
+				} elseif ( is_product_tag() ) {
+					global $wp_query;
+					$tag = $wp_query->get_queried_object();
+					$url = get_term_link( $tag );
+				}
+
+				// add querystring to URL if set
+				if ( $_SERVER['QUERY_STRING'] != '' ) {
+					$url .= '?' . $_SERVER['QUERY_STRING'];
+				}
+
 				?>
-				<form class="woocommerce-ordering" method="post">
+				<form class="woocommerce-ordering" method="post" action="<?php echo $url; ?>">
 					<select name="per_page" class="per_page" onchange="this.form.submit()">
 						<?php
 							$x = 1;
@@ -339,14 +357,14 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 				$newness 		= get_option( 'wc_pac_newness' ); 	// Newness in days as defined by option
 
 				if ( ( time() - ( 60 * 60 * 24 * $newness ) ) < $postdatestamp ) { // If the product was published within the newness time frame display the new badge
-					echo '<p><span class="wc-new-badge">' . __( 'New', 'woocommerce-product-archive-customiser' ) . '</span></p>';
+					echo '<p class="wc-new-badge"><span>' . __( 'New', 'woocommerce-product-archive-customiser' ) . '</span></p>';
 				}
 			}
 
 			function woocommerce_pac_show_product_categories() {
 				global $post;
 				$terms_as_links = get_the_term_list( $post->ID, 'product_cat', '', ', ', '' );
-				echo '<p><small class="categories">' . $terms_as_links . '</small></p>';
+				echo '<p class="categories"><small>' . $terms_as_links . '</small></p>';
 			}
 
 			function woocommerce_pac_show_product_stock() {
