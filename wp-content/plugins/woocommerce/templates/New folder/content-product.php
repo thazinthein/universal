@@ -9,9 +9,7 @@
  * @version     1.6.4
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
-}
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 global $product, $woocommerce_loop;
 
@@ -38,23 +36,25 @@ if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] )
 	$classes[] = 'last';
 ?>
 <li <?php post_class( $classes ); ?>>
-
+<div class="product-pack">
 	<?php do_action( 'woocommerce_before_shop_loop_item' ); ?>
 
 	<a href="<?php the_permalink(); ?>">
-
-		<?php
-			/**
-			 * woocommerce_before_shop_loop_item_title hook
-			 *
-			 * @hooked woocommerce_show_product_loop_sale_flash - 10
-			 * @hooked woocommerce_template_loop_product_thumbnail - 10
-			 */
-			do_action( 'woocommerce_before_shop_loop_item_title' );
-		?>
-
-		<h3><?php the_title(); ?></h3>
-
+		<div class="img" style="position:relative;">
+			<?php
+				/**
+				 * woocommerce_before_shop_loop_item_title hook
+				 *
+				 * @hooked woocommerce_show_product_loop_sale_flash - 10
+				 * @hooked woocommerce_template_loop_product_thumbnail - 10
+				 */
+				do_action( 'woocommerce_before_shop_loop_item_title' );
+			?>
+		</div>
+	</a>
+	<div class="data popup">
+		<a href="<?php the_permalink(); ?>"><h3 class="product-title" style="height:40px;padding-left: 7px;padding-right: 7px;"><?php the_title(); ?></h3></a>
+		</br><div class="pack-data-height"><?php echo apply_filters( 'woocommerce_short_description',excerpt(17)) ?></div>
 		<?php
 			/**
 			 * woocommerce_after_shop_loop_item_title hook
@@ -64,18 +64,7 @@ if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] )
 			 */
 			do_action( 'woocommerce_after_shop_loop_item_title' );
 		?>
-
-	</a>
-
-	<?php
-
-		/**
-		 * woocommerce_after_shop_loop_item hook
-		 *
-		 * @hooked woocommerce_template_loop_add_to_cart - 10
-		 */
-		do_action( 'woocommerce_after_shop_loop_item' ); 
-
-	?>
-
+		<?php do_action( 'woocommerce_after_shop_loop_item' ); ?>
+	</div>
+</div>
 </li>

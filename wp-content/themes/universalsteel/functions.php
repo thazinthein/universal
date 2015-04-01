@@ -104,7 +104,16 @@ add_theme_support( 'woocommerce' );
 /**
  * Hides Woocommerce breadcrumb
  */
-remove_action( 'woocommerce_before_main_content','woocommerce_breadcrumb', 20, 0);
+//remove_action( 'woocommerce_before_main_content','woocommerce_breadcrumb', 20, 0);
+
+/**
+ * Hides Woocommerce breadcrumb ********Imporant***********
+ */
+add_action( 'init', 'jk_remove_wc_breadcrumbs' );
+function jk_remove_wc_breadcrumbs() {
+remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
+} 
+
 
 /**
  * Change Woocommerce breadcrumb Seperator
@@ -596,7 +605,7 @@ class ik_walker extends Walker_Nav_Menu{
     $item_output = $args->before;
     $item_output .= '<a'. $attributes .'>';
     $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
-    if(strlen($item->description)>2){ $item_output .= '<br /><span class="sub">' . $item->description . '</span>'; }
+    if(strlen($item->description)>2){ $item_output .= '<br/><span class="sub">' . $item->description . '</span>'; }
     $item_output .= '</a>';
     $item_output .= $args->after;
  

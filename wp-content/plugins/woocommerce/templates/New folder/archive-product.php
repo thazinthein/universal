@@ -1,3 +1,4 @@
+
 <?php
 /**
  * The Template for displaying product archives, including the main shop page which is a post type archive.
@@ -9,12 +10,12 @@
  * @version     2.0.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
-}
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 get_header( 'shop' ); ?>
-
+<div class="container">
+		<div class="col-md-12 datapanel">
+			<div class="col-md-9 leftpanel product-left">
 	<?php
 		/**
 		 * woocommerce_before_main_content hook
@@ -89,5 +90,31 @@ get_header( 'shop' ); ?>
 		 */
 		do_action( 'woocommerce_sidebar' );
 	?>
+
+
+
+		</div>
+		<div class="col-md-3 right curved-vt-1">
+			<div class="rightpanel">
+				<h3 class="services-right-header">Our Services</h3>
+				<span class="btnar btn-4 btn-4b icon-arrow-right"><a href="#">Flash Stream Recovery Systems</a></span>
+				<span class="btnar btn-4 btn-4b icon-arrow-right"><a href="#">Boiler Rental up to 8 tons (250 psi)</a></span>
+				<span class="btnar btn-4 btn-4b icon-arrow-right"><a href="#">Piping Works</a></span>
+				<span class="btnar btn-4 btn-4b icon-arrow-right"><a href="#">Hydrostatic Pressure Testing</a></span>
+				<span class="btnar btn-4 btn-4b icon-arrow-right"><a href="#">Boiler Repair</a></span>
+				<span class="btnar btn-4 btn-4b icon-arrow-right"><a href="#">Boiler Chimnery & Re-Tubing</a></span>
+				<span class="btnar btn-4 btn-4b icon-arrow-right"><a href="#">Boiler Cleaning & Servicing</a></span>
+				<span class="btnar btn-4 btn-4b icon-arrow-right"><a href="#">Fabrication & Installation Works</a></span>
+				<span class="btnar btn-4 btn-4b icon-arrow-right"><a href="#">Solar Panels</a></span>
+				<span class="btnar btn-4 btn-4b icon-arrow-right"><a href="#">Turnkey Projects</a></span>
+				<span class="btnar btn-4 btn-4b icon-arrow-right"><a href="#">PE Calculation & Endorsement</a></span>
+				<span class="btnar btn-4 btn-4b icon-arrow-right"><a href="#">Steam Engineering Consultancy</a></span>
+				<span class="btnar btn-4 btn-4b icon-arrow-right"><a href="#">Heat Pumps</a></span>
+				<hr style="margin-left:-10px;padding-left:-20px;">
+				<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('homepage-random') ) : endif; ?>
+			</div>
+		</div>
+	</div>
+</div>
 
 <?php get_footer( 'shop' ); ?>

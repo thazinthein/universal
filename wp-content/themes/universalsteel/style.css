@@ -401,7 +401,7 @@ body{
 	min-width: 60px;
 }
 
-.navbar-nav li#mega-menu-item-23{
+.navbar-nav li#mega-menu-item-111{
 	min-width: 130px!important;
 }
 
@@ -504,6 +504,15 @@ div.navbar-collapse div#mega-menu-wrap-primary ul.mega-sub-menu{
 
 /******************PageHead***************************/
 
+.pagehead-title h2{
+	font-family: 'verdana';
+	font-size: 26px;
+	color: #000;
+	letter-spacing: 2px;
+	font-weight: bold;
+	padding-top: 20px;
+}
+
 .pagehead{
 	background: url('images/pagehead_bg.gif') repeat-x;
 	height: 145px;
@@ -533,7 +542,7 @@ nav#crumbs{
 }
 
 .breadcurmb{
-	padding-top:17px;
+	padding-top:16px;
 	position: relative;
 	font: 11px Arial, Helvetica, sans-serif;
 
@@ -628,7 +637,7 @@ footer.footerwrapper .social img{
 	margin-bottom: 20px;
 }
 
-.woocommerce-tabs ul.tabs li.reviews_tab,#comments,#review_form_wrapper{
+.woocommerce-tabs ul.tabs li.reviews_tab,#comments,#review_form_wrapper,div#payment{
 	display: none;
 	visibility: hidden;
 }
@@ -667,7 +676,7 @@ footer.footerwrapper .social img{
 }
 
 .woocommerce li.woocommerce_subcategories_widget ul.product-categories li.current a{
-		color: #fff;
+		color: #fff!important;
 }
 
 .woocommerce .categ-menu li.parent-categ,.woocommerce .categ-menu li.sub-categ{
@@ -712,9 +721,97 @@ footer.footerwrapper .social img{
     margin: auto auto!important;
 }
 
-.woocommerce .related{
+.woocommerce .related,.cart_totals{
 	display: none;
 }
 .woocommerce .woocommerce-message {
     border-top-color: #339fd3!important;
+}
+
+input.update-btn[type="submit"] {
+    background: #333333;
+    border: 1px solid #4c4c4c;
+    color: #fff;
+    padding: 10px;
+    font-weight: bold;
+}
+
+input.update-btn:hover,table.cart input.checkout-btn:hover{text-decoration: underline;}
+table.cart input.checkout-btn[type="submit"] {
+    background: #333333;
+    border: 1px solid #4c4c4c;
+    color: #fff;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.woocommerce table.cart img, .woocommerce #content table.cart img, .woocommerce-page table.cart img, .woocommerce-page #content table.cart img {
+    width: 90px!important;
+    height: auto!important;
+}
+
+.woocommerce .quantity, .woocommerce #content .quantity, .woocommerce-page .quantity, .woocommerce-page #content .quantity {
+    margin: 0 auto;
+    min-height: 30px;
+    overflow: hidden;
+    position: relative;
+    width: 60px;
+}
+
+.woocommerce .quantity .minus, .woocommerce #content .quantity .minus, .woocommerce-page .quantity .minus, .woocommerce-page #content .quantity .minus {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.woocommerce .quantity .plus, .woocommerce #content .quantity .plus, .woocommerce-page .quantity .plus, .woocommerce-page #content .quantity .plus {
+    border-bottom: 0 none;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    right: 0;
+    top: 0;
+}
+
+.woocommerce .quantity input.qty, .woocommerce #content .quantity input.qty, .woocommerce-page .quantity input.qty, .woocommerce-page #content .quantity input.qty {
+    -moz-appearance: textfield;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #878686 -moz-use-text-color #878686 #878686;
+    border-image: none;
+    border-radius: 0px 0 0 0px;
+    border-style: solid none solid solid;
+    border-width: 1px 0 1px 1px;
+    box-shadow: 0 0 2px 0 #f7f6f7 inset;
+    float: left;
+    font-weight: 700;
+    height: 45px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    width: 40px;
+}
+
+.woocommerce .quantity .plus, .woocommerce .quantity .minus, .woocommerce #content .quantity .plus, .woocommerce #content .quantity .minus, .woocommerce-page .quantity .plus, .woocommerce-page .quantity .minus, .woocommerce-page #content .quantity .plus, .woocommerce-page #content .quantity .minus {
+    background: none repeat scroll 0 center rgba(0, 0, 0, 0);
+    border: 1px solid #878686;
+    border-radius: 2px;
+    box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.075) inset, 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 2px rgba(0, 0, 0, 0.1);
+    color: #5e5e5e;
+    cursor: pointer;
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    height: 23px;
+    line-height: 13px;
+    margin: 0;
+    overflow: visible;
+    padding: 0;
+    position: absolute;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: text-top;
+    width: 20px;
 }

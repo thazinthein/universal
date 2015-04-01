@@ -128,6 +128,21 @@ get_header( 'shop' ); ?>
 			?>
 
 	</div>
+	<div class="col-md-2">			
+
+				<div id="sidebar" class="">
+							<div class="rightcol">			 				
+
+								<div id="recent-posts-3" class="widget widget_recent_entries">		
+									<h3 class="widgettitle">Products</h3>		
+										<nav class="rightnav" role="navigation">
+											<?php echo do_shortcode('[accordionmenu id="uniqued1c3833" accordionmenu="225"]'); ?>			
+										</nav>
+								</div> <!-- end .widget --><!-- end .widget -->							
+
+							</div>
+				</div>
+	</div>
 	
 		
 	</div>
