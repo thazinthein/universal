@@ -237,7 +237,7 @@ function hide_free_price_notice( $price ) {
 }
 add_action( 'widgets_init', 'guardian_widgets_init' );*/
 
-// define woocommerce_search_products()
+// define woocommerce_category_products()
 if ( function_exists('register_sidebar') ) {
 register_sidebar(array(
 'name' => 'Woo Catego',
@@ -250,6 +250,18 @@ register_sidebar(array(
 ));
 }   
 
+// define woocommerce_accordin_categories()
+if ( function_exists('register_sidebar') ) {
+register_sidebar(array(
+'name' => 'Woo Accordin',
+'id' => 'woo-accordin',
+'description' => 'Appears as the sidebar on the custom homepage',
+'before_widget' => '<div style="height:5px"></div><li id="%1$s" class="widget %2$s">',
+'after_widget' => '</li>',
+'before_title' => '<h2 class="widgettitle">',
+'after_title' => '</h2>',
+));
+}   
 
 // define woocommerce_search_products()
 if ( function_exists('register_sidebar') ) {
@@ -427,17 +439,14 @@ function remove_taxonomy_menu_pages() {
     );
 }
 
-function my_woocommerce_continue_shopping_redirect( $return_to ) {
+/*function my_woocommerce_continue_shopping_redirect( $return_to ) {
   return get_permalink( woocommerce_get_page_id( 'shop' ) );
 }
-add_filter( 'woocommerce_continue_shopping_redirect', 'my_woocommerce_continue_shopping_redirect', 20 );
+add_filter( 'woocommerce_continue_shopping_redirect', 'my_woocommerce_continue_shopping_redirect', 20 );*/
 
 
 
-
-
-
-function woocommerce_subcats_from_parentcat_by_ID($parent_cat_ID) {
+function woocommerce_subcats_from_parentcat_by_ID($product_cat_id) {
  
    $args = array(
  
@@ -447,7 +456,7 @@ function woocommerce_subcats_from_parentcat_by_ID($parent_cat_ID) {
  
        'hide_empty' => 0,
  
-       'parent' => $parent_cat_ID,
+       'parent' => $product_cat_id,
  
      'taxonomy' => 'product_cat'
  
@@ -515,7 +524,6 @@ echo '</ul>';
 	  wp_enqueue_script( 'waypoints-init', get_stylesheet_directory_uri() .'/js/waypoints-init.js' , array( 'jquery', 'waypoints' ), '1.0.0' );
 	 
 	}*/
-
 
 	add_action( 'admin_menu', 'remove_submenu_pages', 999 );
 	function remove_submenu_pages() {
@@ -601,9 +609,83 @@ class ik_walker extends Walker_Nav_Menu{
 // Register Custom Navigation Walker
 require_once('wp_bootstrap_navwalker.php');
 register_nav_menus( array(
-    'primary' => __( 'Primary Menu', 'goldenworld' ),
+    'primary' => __( 'Primary Menu', 'universalsteel' ),
 ) );
 
 // Disable WooCommerce's Default Stylesheets
+function wc_origin_trail_ancestor( $link = false, $trail = false) {
+
+    if (is_product_category()) {
+        global $wp_query;
+        $q_obj = $wp_query->get_queried_object();
+        $cat_id = $q_obj->term_id;
+
+        $descendant = get_term_by("id", $cat_id, "product_cat");
+        $descendant_id = $descendant->term_id;
+
+        $ancestors = get_ancestors($cat_id, 'product_cat');
+        $ancestors = array_reverse($ancestors);
+
+        $origin_ancestor = get_term_by("id", $ancestors[0], "product_cat");
+        $origin_ancestor_id = $origin_ancestor->term_id;
+
+        $ac = count($ancestors);
+
+    } else if ( is_product() ) {
+
+        $descendant = get_the_terms( $post->ID, 'product_cat' );
+        $descendant = array_reverse($descendant);
+        $descendant = $descendant[0];
+        $descendant_id = $descendant->term_id;
+
+        $ancestors = array_reverse(get_ancestors($descendant_id, 'product_cat'));
+        $ac = count($ancestors);
+
+    }
+
+
+    $c = 1;
+    if( $trail == false ){
+
+        $origin_ancestor_term = get_term_by("id", $ancestors[0], "product_cat");
+        $origin_ancestor_link = get_term_link( $origin_ancestor_term->slug, $origin_ancestor_term->taxonomy );
+
+        if($link == true) 
+            echo '<li><a href="'. $origin_ancestor_link .'">';
+        echo $origin_ancestor_term->name;
+        if($link == true) 
+            echo '</a></li>';
+
+    }else{
+
+        foreach ($ancestors as $ancestor) {
+            $ancestor_term = get_term_by("id", $ancestor, "product_cat");
+            $ancestor_link = get_term_link( $ancestor_term->slug, $ancestor_term->taxonomy );
+
+            if($c++ == 1) 
+                echo '<li class="parent-categ"> '; 
+            else if($c++ != 1 || $c++ != $ac) 
+                echo ' </li> ';
+
+            if($link == true) 
+                echo '<a href="'. $ancestor_link .'">';
+            echo  $ancestor_term->name;
+            if($link == true) 
+                echo '</a>';
+
+        }
+
+        $descendant_term = get_term_by("id", $descendant_id, "product_cat");
+        $descendant_link = get_term_link( $descendant_term->slug, $descendant_term->taxonomy );
+
+        echo ' <li class="sub-categ current-categ"> ';
+        if($link == true) 
+            echo '<a href="'. $descendant_link .'">';
+        echo $descendant->name;
+        if($link == true) 
+            echo '</a>';
+    }        
+}
+
 
 ?>

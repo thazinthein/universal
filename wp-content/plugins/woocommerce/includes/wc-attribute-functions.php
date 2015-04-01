@@ -46,11 +46,10 @@ function wc_attribute_taxonomy_name( $name ) {
 /**
  * Get a product attributes label.
  *
- * @param string $name
- * @param  object $product object Optional
+ * @param mixed $name
  * @return string
  */
-function wc_attribute_label( $name, $product = '' ) {
+function wc_attribute_label( $name ) {
 	global $wpdb;
 
 	if ( taxonomy_is_product_attribute( $name ) ) {
@@ -61,15 +60,11 @@ function wc_attribute_label( $name, $product = '' ) {
 		if ( ! $label ) {
 			$label = ucfirst( $name );
 		}
-	} elseif ( $product && ( $attributes = $product->get_attributes() ) && isset( $attributes[ sanitize_title( $name ) ]['name'] ) ) {
-		// Attempt to get label from product, as entered by the user
-		$label = $attributes[ sanitize_title( $name ) ]['name'];
 	} else {
-		// Just format as best as we can
 		$label = ucwords( str_replace( '-', ' ', $name ) );
 	}
 
-	return apply_filters( 'woocommerce_attribute_label', $label, $name, $product );
+	return apply_filters( 'woocommerce_attribute_label', $label, $name );
 }
 
 /**

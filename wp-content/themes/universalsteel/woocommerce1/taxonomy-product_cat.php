@@ -30,13 +30,18 @@ $cat_count = count($all_the_cats);
 //
 
 // Define the parent
-$parent_cat = $all_the_cats[0];
+$parent_cat = $all_the_cats[1];
 
 // In-house classes
 if ( $parent_cat == 'classes' ) woocommerce_get_template( 'archive-product.php' );
 
 // Online courses (videos) -- "top-level" categories
-elseif ( $parent_cat == 'eurocryor' && $cat_count == 1 ) woocommerce_get_template( 'eurocryor.php' );
+elseif ( $cat_count >= 1 ) woocommerce_get_template( 'eurocryor.php' );
+
 
 // Online courses (videos) -- sub-categories
-//		elseif ( $parent_cat == 'eurocryor' && $cat_count > 1 ) woocommerce_get_template( 'eurocryor.php' );
+//elseif ( $parent_cat == 'eurocryor' && $cat_count > 1 ) woocommerce_get_template( 'eurocryor.php' );
+
+//elseif ( $parent_cat == 'eurocryor' && $cat_count == 1 ) woocommerce_get_template( 'eurocryor.php' );
+
+//elseif ( $parent_cat == 'icetro' && $cat_count == 1 ) woocommerce_get_template( 'icetro.php' );

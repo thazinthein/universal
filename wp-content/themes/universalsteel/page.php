@@ -7,19 +7,25 @@
  get_header(); ?>
 <div class="pagehead">
 	<div class="container">
-        <div class="col-md-7 pagehead-title-bg">
-			<div class="pagehead-title">
-				
-					<h2><?php the_title(); ?></h2>
-				
-				
-				<div class="breadcurmb" id="breadcrumb">
+		
+		<div class="row">
+	        <div class="col-md-12 pagehead-title-bg">
+				<img src="<?php bloginfo('template_directory');?>/images/pagehead_title_bg-right.png" class="img-responsive">
+				<div class="pagehead-title">
+					
+						<h2><?php woocommerce_page_title(); ?></h2>
+						<?php do_action( 'woocommerce_archive_description' ); ?>
+				</div>
+			</div>
+			
+		</div>
+		
+		<div class="row breadcurmb">
+			<div class="" id="breadcrumb">
 					<?php woocommerce_breadcrumb(); ?>
 				</div>
-
-			</div>
 		</div>
-		<div class="col-md-5 pagehead-title-bg-right"></div>
+
 	</div>
 </div>
 
@@ -44,12 +50,9 @@
 
 			<?php endwhile; endif; ?>
 		</div>
-		<div class="col-md-10">
+		<div class="col-md-2">
 			<div class="widget"> 
-			    <?php  
-					if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('woo-catego') ) :
-				    endif; 
-				?>
+			    
 			</div>
 		</div>
 </div>

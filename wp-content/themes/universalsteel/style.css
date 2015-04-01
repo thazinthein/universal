@@ -514,6 +514,10 @@ div.navbar-collapse div#mega-menu-wrap-primary ul.mega-sub-menu{
 	height: 102px;	
 }
 
+.pagehead-title-bg img{
+	float: right;
+}
+
 .pagehead-title-bg-right{
 	background: url('images/pagehead_title_bg-right.png') top right no-repeat;
 	height: 132px;
@@ -529,7 +533,8 @@ nav#crumbs{
 }
 
 .breadcurmb{
-	padding-top:55px;
+	padding-top:17px;
+	position: relative;
 	font: 11px Arial, Helvetica, sans-serif;
 
 
@@ -562,6 +567,28 @@ text-decoration: none;
 color:#000;
 }
 /******************Breadcrumbs***************************/
+
+
+/******************RightNav***************************/
+.rightnav{
+	background: #878686;
+	color: #fff;	
+}
+
+div#nextend-accordion-menu-uniqued1c3833 dl.level1 dt a, div#nextend-accordion-menu-uniqued1c3833 dl.level1 dt a span{
+	color: #fff!important;
+	font-family: "Arial";
+	font-size: 10pt!important;
+	font-weight: bold!important;
+}
+
+div#nextend-accordion-menu-uniqued1c3833 dl.level1 dt.active{
+	background: #339fd3!important;
+}
+
+/******************RightNav***************************/
+
+
 
 /******************Footer***************************/
 
@@ -597,47 +624,97 @@ footer.footerwrapper .social img{
 
 /*****************Custom Woocommerce************************/
 
+.categ-menu{
+	margin-bottom: 20px;
+}
 
+.woocommerce-tabs ul.tabs li.reviews_tab,#comments,#review_form_wrapper{
+	display: none;
+	visibility: hidden;
+}
 
-/*
+.pagehead-title{min-height: 145px;position: relative;}
+.woocommerce li.woocommerce_subcategories_widget ul.product-categories li{
+	list-style-type: none;
+	display: inline;
+	padding: 0 1em;
+	border:1px solid #e6e6e6;
+	padding: 10px;
+	margin-right: 3px;
+}
 
-    .tabs {
-      position: relative;   
-      min-height: 200px; 
-      clear: both;
-      margin: 25px 0;
-    }
-    .tab {
-      float: left;
-    }
-    .tab label {
-      background: #eee; 
-      padding: 10px; 
-      border: 1px solid #ccc; 
-      margin-left: -1px; 
-      position: relative;
-      left: 1px; 
-    }
-    .tab [type=radio] {
-      display: none;   
-    }
+.woocommerce li.woocommerce_subcategories_widget ul.product-categories liparent a{
+	border-right: 0px;
+	list-style-type: none;
+	display: inline;
+	padding: 0 1em;
+	border:1px solid #e6e6e6;
+	padding: 10px;
+	margin-right: 3px;
+}
 
-    .content {
-      position: absolute;
-      top: 28px;
-      left: 0;
-      background: white;
-      right: 0;
-      bottom: 0;
-      padding: 20px;
-      border: 1px solid #ccc; 
-    }
-    [type=radio]:checked ~ label {
-      background: white;
-      border-bottom: 1px solid white;
-      z-index: 2;
-    }
-    [type=radio]:checked ~ label ~ .content {
-      z-index: 1;
+.woocommerce li.woocommerce_subcategories_widget ul.product-categories li a,.woocommerce li.woocommerce_subcategories_widget ul.product-categories liparent a{
+	color: #878686;
+}
 
-*/
+.woocommerce li.woocommerce_subcategories_widget{
+	list-style-type: none;
+}
+
+.woocommerce li.woocommerce_subcategories_widget ul.product-categories li.current{
+	background: #339fd3;
+	color: #fff;
+}
+
+.woocommerce li.woocommerce_subcategories_widget ul.product-categories li.current a{
+		color: #fff;
+}
+
+.woocommerce .categ-menu li.parent-categ,.woocommerce .categ-menu li.sub-categ{
+	list-style-type: none;
+	display: inline;
+	padding: 0 1em;
+	border:1px solid #e6e6e6;
+	padding: 10px;
+	margin-right: 3px;
+}
+
+.woocommerce .categ-menu li.parent-categ a,.woocommerce .categ-menu li.sub-categ a{
+	color: #878686;
+}
+
+.woocommerce .categ-menu li.current-categ{
+	background: #339fd3;
+	color: #fff;
+}
+
+.woocommerce .categ-menu li.current-categ a{
+		color: #fff;
+}
+
+.woocommerce ul.products li.product a img {
+	border:1px solid #dddddd;
+}
+
+.woocommerce ul.products li.product h3 {
+	text-align: center;
+	color: #333333;
+	font-family: 'verdana';
+	font-size: 12px;
+}
+
+.woocommerce ul.products li.product a, .woocommerce .widget_layered_nav_filters ul li a {
+    
+}
+
+.woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button {
+    text-align: center;
+    margin: auto auto!important;
+}
+
+.woocommerce .related{
+	display: none;
+}
+.woocommerce .woocommerce-message {
+    border-top-color: #339fd3!important;
+}

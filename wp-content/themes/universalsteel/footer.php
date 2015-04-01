@@ -40,7 +40,10 @@ Copyright© 2015 Universal Steel Industries Pte Ltd. All right reserved
 
 <!-- this is where we put our custom functions -->
 <script src="<?php bloginfo('template_directory'); ?>/functions.php"></script>
-
+<script src="<?php bloginfo('template_url'); ?>/js/bootstrap.min.js"></script>
+<script>window.jQuery || document.write('<script src="<?php bloginfo('template_directory'); ?>/js/jquery.min.js"><\/script>');</script>
+<script src="<?php bloginfo('template_directory'); ?>/js/modernizr.min.js"></script>
+  
 <script>
 
 </script>

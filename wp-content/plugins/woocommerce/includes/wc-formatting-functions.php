@@ -112,10 +112,10 @@ function wc_get_weight( $weight, $to_unit ) {
 				$weight *= 0.001;
 			break;
 			case 'lbs':
-				$weight *= 0.453592;
+				$weight *= 0.4536;
 			break;
 			case 'oz':
-				$weight *= 0.0283495;
+				$weight *= 0.0283;
 			break;
 		}
 
@@ -125,7 +125,7 @@ function wc_get_weight( $weight, $to_unit ) {
 				$weight *= 1000;
 			break;
 			case 'lbs':
-				$weight *= 2.20462;
+				$weight *= 2.2046;
 			break;
 			case 'oz':
 				$weight *= 35.274;
@@ -142,7 +142,7 @@ function wc_get_weight( $weight, $to_unit ) {
  * @return string
  */
 function wc_trim_zeros( $price ) {
-	return preg_replace( '/' . preg_quote( wc_get_price_decimal_separator(), '/' ) . '0++$/', '', $price );
+	return preg_replace( '/' . preg_quote( get_option( 'woocommerce_price_decimal_sep' ), '/' ) . '0++$/', '', $price );
 }
 
 /**
@@ -152,7 +152,7 @@ function wc_trim_zeros( $price ) {
  * @return double
  */
 function wc_round_tax_total( $tax ) {
-	$dp = wc_get_price_decimals();
+	$dp = (int) get_option( 'woocommerce_price_num_decimals' );
 
 	// @codeCoverageIgnoreStart
 	if ( version_compare( phpversion(), '5.3', '<' ) ) {
@@ -183,21 +183,17 @@ function wc_format_refund_total( $amount ) {
  * @return string
  */
 function wc_format_decimal( $number, $dp = false, $trim_zeros = false ) {
-	$locale   = localeconv();
-	$decimals = array( wc_get_price_decimal_separator(), $locale['decimal_point'], $locale['mon_decimal_point'] );
-
 	// Remove locale from string
 	if ( ! is_float( $number ) ) {
-		$number = wc_clean( str_replace( $decimals, '.', $number ) );
+		$locale   = localeconv();
+		$decimals = array( get_option( 'woocommerce_price_decimal_sep' ), $locale['decimal_point'], $locale['mon_decimal_point'] );
+		$number   = wc_clean( str_replace( $decimals, '.', $number ) );
 	}
 
-	if ( $dp !== false ) {
-		$dp     = intval( $dp == "" ? wc_get_price_decimals() : $dp );
-		$number = number_format( floatval( $number ), $dp, '.', '' );
-
 	// DP is false - don't use number format, just return a string in our format
-	} elseif ( is_float( $number ) ) {
-		$number = wc_clean( str_replace( $decimals, '.', strval( $number ) ) );
+	if ( $dp !== false ) {
+		$dp     = intval( $dp == "" ? get_option( 'woocommerce_price_num_decimals' ) : $dp );
+		$number = number_format( floatval( $number ), $dp, '.', '' );
 	}
 
 	if ( $trim_zeros && strstr( $number, '.' ) ) {
@@ -230,7 +226,7 @@ function wc_float_to_string( $float ) {
  * @return string
  */
 function wc_format_localized_price( $value ) {
-	return str_replace( '.', wc_get_price_decimal_separator(), strval( $value ) );
+	return str_replace( '.', get_option( 'woocommerce_price_decimal_sep' ), strval( $value ) );
 }
 
 /**
@@ -251,24 +247,6 @@ function wc_format_localized_decimal( $value ) {
  */
 function wc_clean( $var ) {
 	return sanitize_text_field( $var );
-}
-
-/**
- * Sanitize a string destined to be a tooltip. Prevents XSS.
- * @param string $var
- * @return string
- */
-function wc_sanitize_tooltip( $var ) {
-	return wp_kses( html_entity_decode( $var ), array(
-		'br'     => array(),
-		'em'     => array(),
-		'strong' => array(),
-		'span'   => array(),
-		'ul'     => array(),
-		'li'     => array(),
-		'ol'     => array(),
-		'p'      => array(),
-    ) );
 }
 
 /**
@@ -328,35 +306,6 @@ function get_woocommerce_price_format() {
 }
 
 /**
- * Return the thousand separator for prices
- * @since  2.3
- * @return string
- */
-function wc_get_price_thousand_separator() {
-	$separator = wp_specialchars_decode( stripslashes( get_option( 'woocommerce_price_thousand_sep' ) ), ENT_QUOTES );
-	return $separator;
-}
-
-/**
- * Return the decimal separator for prices
- * @since  2.3
- * @return string
- */
-function wc_get_price_decimal_separator() {
-	$separator = wp_specialchars_decode( stripslashes( get_option( 'woocommerce_price_decimal_sep' ) ), ENT_QUOTES );
-	return $separator ? $separator : '.';
-}
-
-/**
- * Return the number of decimals after the decimal point.
- * @since  2.3
- * @return int
- */
-function wc_get_price_decimals() {
-	return absint( get_option( 'woocommerce_price_num_decimals', 2 ) );
-}
-
-/**
  * Format the price with a currency symbol.
  *
  * @param float $price
@@ -364,27 +313,35 @@ function wc_get_price_decimals() {
  * @return string
  */
 function wc_price( $price, $args = array() ) {
-	extract( apply_filters( 'wc_price_args', wp_parse_args( $args, array(
-		'ex_tax_label'       => false,
-		'currency'           => '',
-		'decimal_separator'  => wc_get_price_decimal_separator(),
-		'thousand_separator' => wc_get_price_thousand_separator(),
-		'decimals'           => wc_get_price_decimals(),
-		'price_format'       => get_woocommerce_price_format()
-	) ) ) );
+	extract( shortcode_atts( array(
+		'ex_tax_label' 	=> '0'
+	), $args ) );
 
-	$negative        = $price < 0;
-	$price           = apply_filters( 'raw_woocommerce_price', floatval( $negative ? $price * -1 : $price ) );
-	$price           = apply_filters( 'formatted_woocommerce_price', number_format( $price, $decimals, $decimal_separator, $thousand_separator ), $price, $decimals, $decimal_separator, $thousand_separator );
+	$return          = '';
+	$num_decimals    = absint( get_option( 'woocommerce_price_num_decimals' ) );
+	$currency        = isset( $args['currency'] ) ? $args['currency'] : '';
+	$currency_symbol = get_woocommerce_currency_symbol($currency);
+	$decimal_sep     = wp_specialchars_decode( stripslashes( get_option( 'woocommerce_price_decimal_sep' ) ), ENT_QUOTES );
+	$thousands_sep   = wp_specialchars_decode( stripslashes( get_option( 'woocommerce_price_thousand_sep' ) ), ENT_QUOTES );
 
-	if ( apply_filters( 'woocommerce_price_trim_zeros', false ) && $decimals > 0 ) {
+	if ( $price < 0 ) {
+		$price    = $price * -1;
+		$negative = true;
+	} else {
+		$negative = false;
+	}
+
+	$price           = apply_filters( 'raw_woocommerce_price', floatval( $price ) );
+	$price           = apply_filters( 'formatted_woocommerce_price', number_format( $price, $num_decimals, $decimal_sep, $thousands_sep ), $price, $num_decimals, $decimal_sep, $thousands_sep );
+
+	if ( apply_filters( 'woocommerce_price_trim_zeros', false ) && $num_decimals > 0 ) {
 		$price = wc_trim_zeros( $price );
 	}
 
-	$formatted_price = ( $negative ? '-' : '' ) . sprintf( $price_format, get_woocommerce_currency_symbol( $currency ), $price );
-	$return          = '<span class="amount">' . $formatted_price . '</span>';
+	$formatted_price = ( $negative ? '-' : '' ) . sprintf( get_woocommerce_price_format(), $currency_symbol, $price );
+	$return          = '<span class="amount"> </span>';
 
-	if ( $ex_tax_label && wc_tax_enabled() ) {
+	if ( $ex_tax_label && get_option( 'woocommerce_calc_taxes' ) == 'yes' ) {
 		$return .= ' <small>' . WC()->countries->ex_tax_or_vat() . '</small>';
 	}
 
@@ -460,25 +417,25 @@ function wc_timezone_string() {
 	$utc_offset *= 3600;
 
 	// attempt to guess the timezone string from the UTC offset
-	$timezone = timezone_name_from_abbr( '', $utc_offset, 0 );
+	$timezone = timezone_name_from_abbr( '', $utc_offset );
 
 	// last try, guess timezone string manually
 	if ( false === $timezone ) {
+
 		$is_dst = date( 'I' );
 
 		foreach ( timezone_abbreviations_list() as $abbr ) {
 			foreach ( $abbr as $city ) {
+
 				if ( $city['dst'] == $is_dst && $city['offset'] == $utc_offset ) {
 					return $city['timezone_id'];
 				}
 			}
 		}
-
-		// fallback to UTC
-		return 'UTC';
 	}
 
-	return $timezone;
+	// fallback to UTC
+	return 'UTC';
 }
 
 if ( ! function_exists( 'wc_rgb_from_hex' ) ) {
@@ -494,11 +451,9 @@ if ( ! function_exists( 'wc_rgb_from_hex' ) ) {
 		// Convert shorthand colors to full format, e.g. "FFF" -> "FFFFFF"
 		$color = preg_replace( '~^(.)(.)(.)$~', '$1$1$2$2$3$3', $color );
 
-		$rgb      = array();
 		$rgb['R'] = hexdec( $color{0}.$color{1} );
 		$rgb['G'] = hexdec( $color{2}.$color{3} );
 		$rgb['B'] = hexdec( $color{4}.$color{5} );
-
 		return $rgb;
 	}
 }
@@ -633,41 +588,4 @@ function wc_format_postcode( $postcode, $country ) {
 function wc_format_phone_number( $tel ) {
 	$tel = str_replace( '.', '-', $tel );
 	return $tel;
-}
-
-/**
- * Make a string lowercase.
- * Try to use mb_strtolower() when available.
- *
- * @since  2.3
- * @param  string $string
- * @return string
- */
-function wc_strtolower( $string ) {
-	return function_exists( 'mb_strtolower' ) ? mb_strtolower( $string ) : strtolower( $string );
-}
-
-/**
- * Trim a string and append a suffix
- * @param  string  $string
- * @param  integer $chars
- * @param  string  $suffix
- * @return string
- */
-function wc_trim_string( $string, $chars = 200, $suffix = '...' ) {
-	if ( strlen( $string ) > $chars ) {
-		$string = substr( $string, 0, ( $chars - strlen( $suffix ) ) ) . $suffix;
-	}
-	return $string;
-}
-
-/**
- * Format content to display shortcodes
- *
- * @since  2.3.0
- * @param  string $raw_string
- * @return string
- */
-function wc_format_content( $raw_string ) {
-	return apply_filters( 'woocommerce_format_content', do_shortcode( shortcode_unautop( wpautop( $raw_string ) ) ), $raw_string );
 }
