@@ -22,7 +22,7 @@ get_header( 'shop' ); ?>
 				<img src="<?php bloginfo('template_directory');?>/images/pagehead_title_bg-right.png" class="img-responsive">
 				<div class="pagehead-title">
 					
-						<h2><?php woocommerce_page_title(); ?></h2>
+						<h2>Products</h2>
 						<?php do_action( 'woocommerce_archive_description' ); ?>
 				</div>
 			</div>

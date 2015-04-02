@@ -74,8 +74,13 @@ if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] )
 		 *
 		 * @hooked woocommerce_template_loop_add_to_cart - 10
 		 */
-		do_action( 'woocommerce_after_shop_loop_item' ); 
+		//do_action( 'woocommerce_after_shop_loop_item' ); 
 
 	?>
+
+	<div class="button-enquiry">
+		<span class="detail"><a href="<?php the_permalink(); ?>" class="products-dtl">Details</a></span>
+		<?php do_action( 'woocommerce_after_shop_loop_item' ); ?>
+	</div>
 
 </li>

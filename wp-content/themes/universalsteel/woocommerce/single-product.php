@@ -112,7 +112,7 @@ echo $woo_cat_id;
 }
   /**********Use**************/	         
 //echo $product_cat_id;
-//woocommerce_subcats_from_parentcat_by_ID(28);
+woocommerce_subcats_from_parentcat_by_ID(28);
 
 
 
@@ -155,6 +155,8 @@ if (is_product_category()) {
 
         if($link == true) 
             echo '<li><a href="'. $origin_ancestor_link .'">';
+        
+
         echo $origin_ancestor_term->name;
         echo $origin_ancestor_term->id;
         if($link == true) 
@@ -189,17 +191,6 @@ if (is_product_category()) {
         if($link == true) 
             echo '</a>';
     }  
-
-
-
-
-
-
-
-
-
-
-
 
 
 
