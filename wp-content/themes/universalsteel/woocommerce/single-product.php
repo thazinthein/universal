@@ -102,21 +102,27 @@ echo $woo_cat_id;
 			//$categ=get_term_link( $woo_cat_id, 'product_cat' );
 
 	/**********Use**************/			
-			global $post;
+		/*	global $post;
 			$terms = get_the_terms( $post->ID, 'product_cat' );
 			foreach ($terms as $term) {
-    $product_cat_id = $term->term_id;
-    echo $product_cat_id;
-    
-    break;
-}
+            $product_cat_id = $term->term_id;
+           // $id =  $product_cat_id - 1;
+            $id = $product_cat_id ;
+            echo $id;
+            */
+         
+
+
+
+       //woocommerce_subcats_from_parentcat_by_ID();
+   // break;
+//}
   /**********Use**************/	         
 //echo $product_cat_id;
-woocommerce_subcats_from_parentcat_by_ID(28);
 
 
 
-
+/*
 
 
 if (is_product_category()) {
@@ -217,15 +223,15 @@ global $wp_query;
  global $post;
 // get categories
 $terms = wp_get_post_terms( $post->ID, 'product_cat' ); 
-echo $terms;
+//echo $terms;
+
+
+
+*/
 
 
 
 
-
-
-
-wc_origin_trail_ancestor(true,true);
 				do_action( 'woocommerce_before_main_content' );
 
 			?>
@@ -268,6 +274,15 @@ wc_origin_trail_ancestor(true,true);
 								</div> <!-- end .widget --><!-- end .widget -->							
 
 							</div>
+
+                            <div class="rightcol">                          
+
+                                <div class="contact-box">       
+                                    <h3>Contact Us</h3>
+                                    <div class="ph-no">(65) 6253 - 6001</div>
+                                </div> <!-- end .widget --><!-- end .widget -->                         
+
+                            </div>
 				</div>
 		</div>
 			

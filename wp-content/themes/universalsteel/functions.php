@@ -466,13 +466,13 @@ function woocommerce_subcats_from_parentcat_by_ID($product_cat_id) {
        'hide_empty' => 0,
  
        'parent' => $product_cat_id,
- 
+       
      'taxonomy' => 'product_cat'
  
    );
  
 $subcats = get_categories($args);
- 
+
 echo '<ul class="wooc_sclist">';
  
 foreach ($subcats as $sc) {
@@ -486,7 +486,7 @@ echo '<li><a href="'. $link .'">'.$sc->name.'</a></li>';
 echo '</ul>';
  
 }
- 
+
 function woocommerce_subcats_from_parentcat_by_NAME($parent_cat_NAME) {
  
 $IDbyNAME = get_term_by('name', $parent_cat_NAME, 'product_cat');
@@ -622,7 +622,7 @@ register_nav_menus( array(
 ) );
 
 // Disable WooCommerce's Default Stylesheets
-function wc_origin_trail_ancestor( $link = false, $trail = false) {
+function wc_origin_trail_ancestor( $link = false, $trail = false ) {
 
     if (is_product_category()) {
         global $wp_query;
@@ -659,11 +659,12 @@ function wc_origin_trail_ancestor( $link = false, $trail = false) {
         $origin_ancestor_term = get_term_by("id", $ancestors[0], "product_cat");
         $origin_ancestor_link = get_term_link( $origin_ancestor_term->slug, $origin_ancestor_term->taxonomy );
 
+
         if($link == true) 
-            echo '<li><a href="'. $origin_ancestor_link .'">';
-        echo $origin_ancestor_term->name;
+            echo '<ul class="tab-ul"><li class="tab-li"><a href="'. $origin_ancestor_link .'">';
+        echo 'All';
         if($link == true) 
-            echo '</a></li>';
+            echo '</a></li></ul>';
 
     }else{
 
@@ -672,9 +673,9 @@ function wc_origin_trail_ancestor( $link = false, $trail = false) {
             $ancestor_link = get_term_link( $ancestor_term->slug, $ancestor_term->taxonomy );
 
             if($c++ == 1) 
-                echo '<li class="parent-categ"> '; 
+                echo '» '; 
             else if($c++ != 1 || $c++ != $ac) 
-                echo ' </li> ';
+                echo ' » ';
 
             if($link == true) 
                 echo '<a href="'. $ancestor_link .'">';
@@ -687,14 +688,43 @@ function wc_origin_trail_ancestor( $link = false, $trail = false) {
         $descendant_term = get_term_by("id", $descendant_id, "product_cat");
         $descendant_link = get_term_link( $descendant_term->slug, $descendant_term->taxonomy );
 
-        echo ' <li class="sub-categ current-categ"> ';
+        echo ' » ';
         if($link == true) 
             echo '<a href="'. $descendant_link .'">';
         echo $descendant->name;
         if($link == true) 
             echo '</a>';
-    }        
+
+    }
+
 }
 
+
+// post views
+function getPostViews($postID){
+    $count_key = 'post_views_count';
+    $count = get_post_meta($postID, $count_key, true);
+    if($count==''){
+        delete_post_meta($postID, $count_key);
+        add_post_meta($postID, $count_key, '0');
+        return "0 View";
+    }
+    return $count.' Views';
+}
+function setPostViews($postID) {
+    $count_key = 'post_views_count';
+    $count = get_post_meta($postID, $count_key, true);
+    if($count==''){
+        $count = 0;
+        delete_post_meta($postID, $count_key);
+        add_post_meta($postID, $count_key, '0');
+    }else{
+        $count++;
+        update_post_meta($postID, $count_key, $count);
+    }
+}
+
+// Remove issues with prefetching adding extra views
+remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0); 
 
 ?>

@@ -45,7 +45,7 @@ textarea:-moz-placeholder { color:#a9a9a9; }
 -------------------------------------------------------------------------------*/
 
 #wrapper {width: 960px; margin: 20px auto;}
-
+.container {width: 1170px!important;}
 .post {}
 
 .entry-content {}
@@ -323,8 +323,32 @@ body{
 .job-scope p,.about p,.notice p,.download p,.map p{
 	color: #767676;
 	font-size: 11px;
-	font-family: verdana;
-	
+	font-family: verdana;	
+}
+
+.contact-box{
+background: rgb(239,239,239); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(239,239,239,1) 0%, rgba(255,255,255,1) 15%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(239,239,239,1)), color-stop(15%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(239,239,239,1) 0%,rgba(255,255,255,1) 15%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(239,239,239,1) 0%,rgba(255,255,255,1) 15%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(239,239,239,1) 0%,rgba(255,255,255,1) 15%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(239,239,239,1) 0%,rgba(255,255,255,1) 15%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efefef', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+height: 115px;
+border:1px solid #cccccc;
+padding:20px;
+margin-top: 40px;
+margin-bottom: 40px;
+}
+
+.contact-box h3{
+	color: #000;
+	font-size: 12px;
+	font-family: verdana;	
+	padding: 0px;
+	margin: 0px;
+	margin-bottom: 10px;
 }
 
 /************************TopMenu****************************/
@@ -374,17 +398,16 @@ body{
 
 .navbar-nav li a{
   color:#fff;
-}
+ }
 
-.navbar{
-  
+.navbar{  
   	background: none;
 	border:none;
 	padding-top: 25px;
 	font-weight: bold;
 	color: #2e75b6;	
-	padding-bottom: 0px;
-	margin-bottom: 10px;
+	padding-bottom: 10px;
+	margin-bottom: 0px;
 }
 
 .navbar ul#mega-menu-primary li { 
@@ -401,7 +424,7 @@ body{
 	min-width: 60px;
 }
 
-.navbar-nav li#mega-menu-item-111{
+.navbar-nav li#mega-menu-item-358{
 	min-width: 130px!important;
 }
 
@@ -455,14 +478,7 @@ div.navbar-collapse div#mega-menu-wrap-primary ul.mega-sub-menu li ul li a{
 }
 
 div.navbar-collapse div#mega-menu-wrap-primary ul.mega-sub-menu li ul{ /* Display the dropdown on hover */
-	
 }
-
-
-
-
-
-
 
 div.navbar-collapse div#mega-menu-wrap-primary ul.mega-sub-menu li ul.menu li.menu-item{
 	
@@ -497,7 +513,7 @@ div.navbar-collapse div#mega-menu-wrap-primary ul.mega-sub-menu{
 	background-size: 100% 79%!important;
 	background-repeat: no-repeat!important;
 	width: 710px!important;
-	margin-top: 10px!important;
+	margin-top: 0px!important;
 }
 /************************TopMenu****************************/
 
@@ -521,6 +537,7 @@ h1.page-title{
 	padding-top: 20px;
 }
 
+
 h3.widgettitle{
 	font-family: 'verdana';
 	font-size: 20px;
@@ -532,7 +549,7 @@ h1.product_title{
 	font-size: 30px;
 	color: #000;
 	letter-spacing: 2px;	
-	padding-top: 20px;
+	padding-top: 0px;
 }
 
 h2.product_title{
@@ -563,6 +580,12 @@ h2.product_title{
 	width: 414px;
 	float: right;
 }
+
+div.product {
+	margin-top: 50px;
+}
+
+.custom-img img.category_banner_image{margin-bottom: 20px;}
 
 /******************PageHead***************************/
 
@@ -598,25 +621,30 @@ nav#crumbs span.breadcrumb-bg{
 .breadcurmb span.breadcrumb-bg{
 min-height:50px!important;
 
-background-image:url('images/beradcrumb-arrow.gif');
+background-image:url('images/beradcrumb-arrow.png');
 background-repeat:no-repeat;
 background-position:right top;
 padding-right: 15px;
 text-decoration: none;
 color:#000;
 }
+
+.entry{
+	margin-top: 20px;
+}
+
 /******************Breadcrumbs***************************/
 
 
 /******************RightNav***************************/
 .rightnav{
-	background: #878686;
+	background: #3b3838;
 	color: #fff;	
 }
 
 div#nextend-accordion-menu-uniqued1c3833 dl.level1 dt a, div#nextend-accordion-menu-uniqued1c3833 dl.level1 dt a span{
 	color: #fff!important;
-	font-family: "Arial";
+	font-family: "Arial"!important;
 	font-size: 10pt!important;
 	font-weight: bold!important;
 }
@@ -627,7 +655,117 @@ div#nextend-accordion-menu-uniqued1c3833 dl.level1 dt.active{
 
 /******************RightNav***************************/
 
+/******************About Us RightNav***************************/
 
+#sidebar nav.rightnav div.menu-aboutus-submenu-container ul,#sidebar nav.rightnav div ul{
+	padding: 10px;
+	margin-top: 20px;
+}
+
+#sidebar nav.rightnav div.menu-aboutus-submenu-container ul li a,#sidebar nav.rightnav ul li a{
+	color: #fff;
+	font-size: 10pt !important;
+    font-weight: bold !important;
+    font-family: "Arimo",Arial;
+    line-height: 20px;
+    text-decoration: none;
+}
+
+table.brandslogo{
+	margin-top: 20px;
+}
+
+table.brandslogo tr{
+	height: 150px!important;
+}
+
+table.brandslogo td{
+	width: 350px!important;
+}
+
+table.brandslogo tr.rowheight{
+	height: 150px!important;
+}
+table.brandslogo td{
+	min-width: 230px!important;
+}
+
+/******************About Us RightNav***************************/
+
+/******************AboutUs***************************/
+
+.aboutus h2,.contactus h2{
+	font-family: "Verdana";
+	font-size: 26px;
+	color: #000;
+}
+
+.aboutus p,.aboutus{
+	color: #000;
+}
+
+.aboutus h2,.contactus h2 {
+    color: #000;
+    font-family: "verdana";
+    font-size: 26px;
+    
+    letter-spacing: 2px;
+    padding-top: 20px;
+}
+
+
+/******************AboutUs***************************/
+
+/******************Contact Us***************************/
+
+.contactus h3{
+	font-size: 25px;
+	color: #0d3ef7;
+	font-family: Arial;
+	text-align: center;
+}
+
+.contactus p{
+	font-size: 15px;
+	color: #000;
+}
+
+
+/******************Contact Us***************************/
+
+/******************Notice & News***************************/
+table.noticetbl thead{
+	padding:10px;
+	margin:10px;
+}
+
+table.noticetbl tr.noticetbl-head{
+	background-color: #3b3838!important;
+	color: #000;
+	padding-top: 10px;	
+	padding:10px!important;
+	height: 30px;	
+	vertical-align: middle;
+}
+
+table.noticetbl tr.noticetbl-head td{	
+	color: #fff;	
+	vertical-align: middle;
+}
+
+table.noticetbl tr{	
+	height: 30px;
+	vertical-align: middle;
+	border-bottom: 1px solid #dddddd;
+}
+
+table.noticetbl td{	
+	height: 30px;
+	vertical-align: middle;
+}
+
+
+/******************Notice & News***************************/
 
 /******************Footer***************************/
 
@@ -660,8 +798,84 @@ footer.footerwrapper .social img{
 }
 /******************Footer***************************/
 
+/*****************Custom Woocommerce Tab************************/
+
+ul.product-categories,ul.wooc_sclist_top{padding-left: 0px;}
+
+.woocommerce .categ-menu li.parent-categ,.woocommerce .categ-menu li.sub-categ{
+	list-style-type: none;
+	display: inline;
+	padding: 0 1em;
+	border:1px solid #e6e6e6;
+	padding: 10px;
+	margin-right: 3px;
+}
+
+.woocommerce .categ-menu li.parent-categ a,.woocommerce .categ-menu li.sub-categ a,.woocommerce li.tab-li a,.woocommerce ul.wooc_sclist li a{
+	color: #878686;
+}
+
+.woocommerce .categ-menu li.current-categ,.woocommerce li.tab-li{
+	background: #339fd3;
+	color: #fff;
+}
+
+.woocommerce ul.wooc_sclist_top li.current{
+	background: #339fd3;
+	color: #fff!important;
+}
+
+
+.woocommerce ul.tab-ul{	
+	display: inline;
+	position: relative;
+	z-index: 100;	
+}
+
+
+.woocommerce .categ-menu li.current-categ a,.woocommerce li.tab-li a,.woocommerce ul.wooc_sclist_top li.current a{
+		color: #fff;
+		padding: 10px;		
+}
+
+.woocommerce li.tab-li{
+	
+	list-style-type: none;
+	display: inline block;
+	float: left;
+	padding: 0 1em;
+	border:1px solid #e6e6e6;
+	padding: 10px;
+	margin-right: 3px;
+} 
+
+.woocommerce ul.wooc_sclist_top{
+	display: inline;
+	float: left;
+	z-index: 10;	
+}
+
+.woocommerce ul.wooc_sclist{
+	position: relative;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+.woocommerce ul.wooc_sclist li{
+	display: inline;
+	list-style-type: none;
+	padding: 0 1em;
+	border:1px solid #e6e6e6;
+	padding: 10px;
+	margin-right: 3px;
+} 
+
+
+/*****************Custom Woocommerce Tab************************/
 
 /*****************Custom Woocommerce************************/
+
+
 
 .categ-menu{
 	margin-bottom: 20px;
@@ -709,33 +923,15 @@ footer.footerwrapper .social img{
 		color: #fff!important;
 }
 
-.woocommerce .categ-menu li.parent-categ,.woocommerce .categ-menu li.sub-categ{
-	list-style-type: none;
-	display: inline;
-	padding: 0 1em;
-	border:1px solid #e6e6e6;
-	padding: 10px;
-	margin-right: 3px;
-}
-
-.woocommerce .categ-menu li.parent-categ a,.woocommerce .categ-menu li.sub-categ a{
-	color: #878686;
-}
-
-.woocommerce .categ-menu li.current-categ{
-	background: #339fd3;
-	color: #fff;
-}
-
-.woocommerce .categ-menu li.current-categ a{
-		color: #fff;
-}
-
 .woocommerce ul.products li.product a img {
 	border:1px solid #dddddd;
 	max-height: 300px!important;
 	max-width: 300px!important;
 	padding: 20px;
+}
+
+.woocommerce ul.products li.product-category a img {
+	/*border:none;	*/
 }
 
 .woocommerce ul.products li.product h3 {
@@ -765,7 +961,7 @@ input.update-btn[type="submit"] {
     background: #333333;
     border: 1px solid #4c4c4c;
     color: #fff;
-    padding: 10px;
+    padding: 5px;
     font-weight: bold;
 }
 
@@ -774,7 +970,7 @@ table.cart input.checkout-btn[type="submit"] {
     background: #333333;
     border: 1px solid #4c4c4c;
     color: #fff;
-    padding: 10px;
+    padding: 5px;
     font-weight: bold;
 }
 
@@ -852,7 +1048,7 @@ table.cart input.checkout-btn[type="submit"] {
 .woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button{
 	background: #7ecbf0!important;
 	color: #fff!important;	
-	border-radius: 0px!important;
+	border-radius: 4px!important;
 }
 
 .woocommerce div.button-enquiry span.detail a.add_to_cart_button{
@@ -864,7 +1060,7 @@ table.cart input.checkout-btn[type="submit"] {
 	color: #fff!important;		
     background-image: none;
     border: 0 none;
-    border-radius: 0px;
+    border-radius: 4px;
     box-shadow: none;   
     cursor: pointer;
     display: inline-block;
@@ -891,3 +1087,49 @@ table.cart input.checkout-btn[type="submit"] {
 .woocommerce ul.products li.product, .woocommerce-page ul.products li.product {
     margin-bottom: 5em!important;
 }
+
+.woocommerce-tabs ul.tabs{
+	display: none;
+}
+
+.woocommerce-tabs #tab-description h2{
+	color: #000;
+    font-family: "verdana";
+    font-size: 20px;
+}
+
+.woocommerce h2,header.title h3{
+    color: #000;
+    font-family: "verdana";
+    font-size: 26px;
+}
+
+.woocommerce div.product div.images img{
+	max-width: 350px;
+	max-height: 350px;
+}
+
+/*************************Checkout Form*************************************/
+
+.woocommerce-billing-fields input{border: none;}
+.woocommerce-shipping-fields textarea#order_comments{min-height: 120px;background: #fff;padding-left: 7px;border: none;border:1px solid #b5b3b3;}
+#billing_city_field{width:47%;float:left;}
+
+#order_review_heading{margin-top: 20px;}
+
+.woocommerce-checkout .breandcrumb{margin-top: -14px;}
+.woocommerce-billing-fields input{height: 35px;background: #fff;padding-left: 7px;border:1px solid #b5b3b3;}
+
+.woocommerce-billing-fields h3,.woocommerce-shipping-fields h3,h3#order_review_heading{
+	font-family: 'Verdana', sans-serif;
+	font-size: 12px;
+	color: #4c4c4c;
+	line-height: 40px;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+
+/*************************Checkout Form*************************************/
+
+

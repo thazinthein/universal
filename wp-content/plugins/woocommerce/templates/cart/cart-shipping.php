@@ -6,20 +6,16 @@
  *
  * @author 		WooThemes
  * @package 	WooCommerce/Templates
- * @version     2.3.0
+ * @version     2.1.0
  */
-
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
-
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 ?>
 <tr class="shipping">
 	<th><?php
 		if ( $show_package_details ) {
 			printf( __( 'Shipping #%d', 'woocommerce' ), $index + 1 );
 		} else {
-			_e( 'Shipping', 'woocommerce' );
+			_e( 'Shipping and Handling', 'woocommerce' );
 		}
 	?></th>
 	<td>
@@ -54,7 +50,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<?php elseif ( ! WC()->customer->get_shipping_state() || ! WC()->customer->get_shipping_postcode() ) : ?>
 
-			<?php if ( is_cart() && get_option( 'woocommerce_enable_shipping_calc' ) === 'yes' ) : ?>
+			<?php if ( is_cart() && get_option( 'woocommerce_enable_shipping_calc' ) === 'no' ) : ?>
 
 				<p><?php _e( 'Please use the shipping calculator to see available shipping methods.', 'woocommerce' ); ?></p>
 
@@ -73,13 +69,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<?php if ( is_cart() ) : ?>
 
 				<?php echo apply_filters( 'woocommerce_cart_no_shipping_available_html',
-					'<p>' . __( 'There are no shipping methods available. Please double check your address, or contact us if you need any help.', 'woocommerce' ) . '</p>'
+					'<div class="woocommerce-error"><p>' .
+					sprintf( __( 'Sorry, shipping is unavailable %s.', 'woocommerce' ) . ' ' . __( 'If you require assistance or wish to make alternate arrangements please contact us.', 'woocommerce' ), WC()->countries->shipping_to_prefix() . ' ' . WC()->countries->countries[ WC()->customer->get_shipping_country() ] ) .
+					'</p></div>'
 				); ?>
 
 			<?php else : ?>
 
 				<?php echo apply_filters( 'woocommerce_no_shipping_available_html',
-					'<p>' . __( 'There are no shipping methods available. Please double check your address, or contact us if you need any help.', 'woocommerce' ) . '</p>'
+					'<p>' .
+					sprintf( __( 'Sorry, shipping is unavailable %s.', 'woocommerce' ) . ' ' . __( 'If you require assistance or wish to make alternate arrangements please contact us.', 'woocommerce' ), WC()->countries->shipping_to_prefix() . ' ' . WC()->countries->countries[ WC()->customer->get_shipping_country() ] ) .
+					'</p>'
 				); ?>
 
 			<?php endif; ?>
@@ -96,10 +96,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 				echo '<p class="woocommerce-shipping-contents"><small>' . __( 'Shipping', 'woocommerce' ) . ': ' . implode( ', ', $product_names ) . '</small></p>';
 			?>
-		<?php endif; ?>
-
-		<?php if ( is_cart() ) : ?>
-			<?php woocommerce_shipping_calculator(); ?>
 		<?php endif; ?>
 	</td>
 </tr>

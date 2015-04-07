@@ -19,7 +19,7 @@
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/reset.css" />
 	
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">     
+	<!--<meta name="viewport" content="width=device-width, initial-scale=1.0">     -->
     <link rel="shortcut icon" href="<?php bloginfo('template_url'); ?>/images/favicon.png">   
     <link href="<?php bloginfo('template_url'); ?>/css/bootstrap.css" rel="stylesheet">
     
@@ -43,7 +43,7 @@
 	      <div class="container">
 	        <div class="row">
 
-		        <div class="col-md-10">
+		        <div class="col-xs-10">
 		            	<div class="navbar navbar-default topnav" role="navigation">
 				                <div class="navbar-header">
 				                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -74,7 +74,7 @@
 				            </div>
 		        </div>
 
-	          <div class="col-md-2">
+	          <div class="col-xs-2">
 	             <div class="logo">               
 	                <img src="<?php bloginfo('template_directory');?>/images/logo.jpg" class="img-responsive">
 	             </div>

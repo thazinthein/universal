@@ -73,7 +73,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 		<tr class="order-total">
 			<th class="ototlal"><?php //_e( 'Order Total', 'woocommerce' ); ?></th>
-			<td>Order Total : <?php wc_cart_totals_order_total_html(); ?></td>
+			<!--<td>Order Total : <?php wc_cart_totals_order_total_html(); ?></td>-->
 		</tr>
 
 		<?php do_action( 'woocommerce_cart_totals_after_order_total' ); ?>

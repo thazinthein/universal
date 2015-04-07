@@ -124,14 +124,14 @@ p {
 }
 
 .login h1 a {
-	background-image: url(../images/w-logo-blue.png?ver=20131202);
-	background-image: none, url(../images/wordpress-logo.svg?ver=20131107);
+	background-image: url(../images/logo.jpg);
+	background-image: none, url(../images/logo.jpg);
 	-webkit-background-size: 84px;
-	background-size: 84px;
+	background-size: 150px;
 	background-position: center top;
 	background-repeat: no-repeat;
 	color: #999;
-	height: 84px;
+	height: 77px;
 	font-size: 20px;
 	font-weight: normal;
 	line-height: 1.3em;

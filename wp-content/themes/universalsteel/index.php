@@ -7,7 +7,7 @@
  get_header(); ?>
 
 	<div class="slider container">
-        <div class="col-md-12">
+        <div class="col-xs-12">
          
         </div>        
     </div>
@@ -15,14 +15,14 @@
   <div class="container">
         <div class="row">
           
-          <div class="col-md-7 home-boxes">
+          <div class="col-xs-7 home-boxes">
              <div class="slider-wrapper"><img src="<?php bloginfo('template_directory');?>/images/slider-img.jpg"></div>
           </div>
           
-          <div class="col-md-5 home-boxes">
+          <div class="col-xs-5 home-boxes">
               
                 
-                <div class="col-md-4 home-boxes">
+                <div class="col-xs-4 home-boxes">
                   <div class="box turbo-air"><h2>Refrigerator</h2></div>
                   <div class="box icetro"><h2>ICE Cube<br>Machine</h2></div>
                   <div class="box euro"><h2>Display Showcase</h2></div>
@@ -30,7 +30,7 @@
                   <div class="box radiance"><h2>Hot Plate</h2></div>
                 </div>
                 
-                <div class="col-md-4 home-boxes">
+                <div class="col-xs-4 home-boxes">
                   <div class="box turbo-flame"></div>
                   <div class="box retigo"><h2>Combi oven</h2></div>
                   <div class="box anets"><h2>Deep<br> Fryer</h2></div>
@@ -38,7 +38,7 @@
                   <div class="box tonon"></div>
                 </div>
                 
-                <div class="col-md-4 home-boxes">
+                <div class="col-xs-4 home-boxes">
                   <div class="box job-scope">
                       <h2>Job Scope</h2>
                       <p>Our company<br>

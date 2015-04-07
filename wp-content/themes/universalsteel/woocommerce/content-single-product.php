@@ -18,13 +18,14 @@ if ( is_product() ) {
 
         $origin_ancestor_term = get_term_by("id", $ancestors[0], "product_cat");
         $origin_ancestor_link = get_term_link( $origin_ancestor_term->slug, $origin_ancestor_term->taxonomy );
+        $origin_ancestor_link = $origin_ancestor_term->slug;
 
         if($link == true) 
             echo '<li><a href="'. $origin_ancestor_link .'">';
         
         $name = $origin_ancestor_term->name;
-        echo $origin_ancestor_term->name;
-        echo $origin_ancestor_term->id;
+        
+        //echo $origin_ancestor_term->id;
         if($link == true) 
             echo '</a></li>';
 
@@ -70,6 +71,7 @@ if($categoria->parent == 0){
 
 }
 ?>
+
 <h1 itemprop="name" class="product_title entry-title"><?php echo $name; //echo the_title(); ?></h1>
 
 <?php
@@ -121,10 +123,11 @@ $term_options = get_option( "taxonomy_term_$cat_id" );
 $url = wp_get_attachment_url( $term_options['banner_url_id'] );
 
 
-   echo "<img src='" . $url . "' class='category_banner_image' />";
+   echo "<div class=custom-img><img src='" . $url . "' class='category_banner_image' /></div>";
 
 ?>
-
+<?php echo '<ul class="wooc_sclist_top wooc_sclist"><li class="current"><a href="'. $origin_ancestor_term->slug .'">'.'All'.'</a></li></ul>';
+        woocommerce_subcats_from_parentcat_by_ID( $ancestors[0]); ?>
 <?php
 	/**
 	 * woocommerce_before_single_product hook
