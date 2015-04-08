@@ -42,9 +42,19 @@
 
 	      <div class="container">
 	        <div class="row">
-
+				
 		        <div class="col-xs-10">
-		            	<div class="navbar navbar-default topnav" role="navigation">
+		        	<div class="row">
+		        		<div class="col-xs-12">
+		        			<div class="cart">
+		        				<?php echo do_shortcode('[WooCommerceWooCartPro]'); ?>
+		        			</div>
+		        		</div>
+		        	</div>
+		            	
+					<div class="row">
+						<div class="col-xs-12">
+		            		<div class="navbar navbar-default topnav" role="navigation">
 				                <div class="navbar-header">
 				                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 				                    <span class="sr-only">Toggle navigation</span>
@@ -72,6 +82,8 @@
 					                </div>
 					            </ul>
 				            </div>
+				        </div>
+				    </div>
 		        </div>
 
 	          <div class="col-xs-2">

@@ -39,7 +39,7 @@ Template Name: Products Page
 
       <h1 class="page-title"><?php woocommerce_page_title(); ?></h1>
       
-      <?php echo do_shortcode('[product_categories number="12" parent="0"]');  ?>
+      <?php echo do_shortcode('[product_categories number="12" parent="0" columns="5"]');  ?>
       
 
   </div>

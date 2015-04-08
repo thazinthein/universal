@@ -11,14 +11,11 @@ Template Name: Products
   <div class="container">
     
     <div class="row">
-          <div class="col-md-12 pagehead-title-bg">
+          <div class="col-xs-12 pagehead-title-bg">
         <img src="<?php bloginfo('template_directory');?>/images/pagehead_title_bg-right.png" class="img-responsive">
         <div class="pagehead-title">          
             <h2>
-              <?php
-                $parent_title = get_the_title($post->post_parent);
-                echo $parent_title;
-                ?>
+              Products
             </h2>
             <?php do_action( 'woocommerce_archive_description' ); ?>
         </div>
@@ -38,7 +35,7 @@ Template Name: Products
 <div class="container">
   <div class="row">
 
-    <div class="col-md-10 products-page">
+    <div class="col-xs-10 products-page">
       
       <?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
 
@@ -126,7 +123,7 @@ Template Name: Products
       ?>
 
   </div>
-  <div class="col-md-2">      
+  <div class="col-xs-2">      
 
         <div id="sidebar" class="">
               <div class="rightcol">              

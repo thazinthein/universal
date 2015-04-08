@@ -9,7 +9,7 @@
 	<div class="container">
 		
 		<div class="row">
-	        <div class="col-md-12 pagehead-title-bg">
+	        <div class="col-xs-12 pagehead-title-bg">
 				<img src="<?php bloginfo('template_directory');?>/images/pagehead_title_bg-right.png" class="img-responsive">
 				<div class="pagehead-title">
 					
@@ -31,9 +31,9 @@
 
 <div class="container">
 	<div class="row">
-        <div class="col-md-10">
+        <div class="col-xs-10">
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-					
+				
 				<article class="post" id="post-<?php the_ID(); ?>">
 
 										
@@ -52,7 +52,7 @@
 			<?php endwhile; endif; ?>
 		</div>
 	
-		<div class="col-md-2">
+		<div class="col-xs-2">
 			<div class="widget"> 
 			    
 			</div>

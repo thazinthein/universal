@@ -403,11 +403,12 @@ margin-bottom: 40px;
 .navbar{  
   	background: none;
 	border:none;
-	padding-top: 25px;
+	padding-top: 0px!important;
 	font-weight: bold;
 	color: #2e75b6;	
 	padding-bottom: 10px;
 	margin-bottom: 0px;
+	min-height: 20px!important;
 }
 
 .navbar ul#mega-menu-primary li { 
@@ -465,7 +466,7 @@ div.navbar-collapse div#mega-menu-wrap-primary ul.mega-sub-menu li ul#menu-produ
 div.navbar-collapse div#mega-menu-wrap-primary{
 	background: none!important;
 	/*color: #2e75b6!important;*/
-	padding-top: 20px;
+	/*padding-top: 20px;*/
 }
 
 div.navbar-collapse div#mega-menu-wrap-primary a{
@@ -515,6 +516,9 @@ div.navbar-collapse div#mega-menu-wrap-primary ul.mega-sub-menu{
 	width: 710px!important;
 	margin-top: 0px!important;
 }
+
+.cart{float: right;padding-top: 5px;}
+
 /************************TopMenu****************************/
 
 
@@ -925,13 +929,16 @@ ul.product-categories,ul.wooc_sclist_top{padding-left: 0px;}
 
 .woocommerce ul.products li.product a img {
 	border:1px solid #dddddd;
-	max-height: 300px!important;
-	max-width: 300px!important;
+	/*max-height: 300px!important;
+	max-width: 300px!important;*/
 	padding: 20px;
 }
 
 .woocommerce ul.products li.product-category a img {
 	/*border:none;	*/
+	height: 126px!important;
+	width: 165px!important;
+	padding: 0px;
 }
 
 .woocommerce ul.products li.product h3 {
@@ -939,6 +946,7 @@ ul.product-categories,ul.wooc_sclist_top{padding-left: 0px;}
 	color: #333333;
 	font-family: 'verdana';
 	font-size: 12px;
+	font-weight: bold;
 }
 
 .woocommerce ul.products li.product a, .woocommerce .widget_layered_nav_filters ul li a {
@@ -1049,6 +1057,7 @@ table.cart input.checkout-btn[type="submit"] {
 	background: #7ecbf0!important;
 	color: #fff!important;	
 	border-radius: 4px!important;
+	border:1px solid #2e75b6!important;
 }
 
 .woocommerce div.button-enquiry span.detail a.add_to_cart_button{
@@ -1101,12 +1110,30 @@ table.cart input.checkout-btn[type="submit"] {
 .woocommerce h2,header.title h3{
     color: #000;
     font-family: "verdana";
-    font-size: 26px;
+    font-size: 21px;
+    letter-spacing: 2px;
+    padding-top: 20px;
 }
 
 .woocommerce div.product div.images img{
 	max-width: 350px;
 	max-height: 350px;
+}
+
+.woocommerce div.thumbnails a img{
+	width: 70px!important;
+	border:1px solid #bfbfbf;
+	padding:10px;
+}
+
+.woocommerce #content div.product div.images, .woocommerce div.product div.images, .woocommerce-page #content div.product div.images, .woocommerce-page div.product div.images {
+    float: left;
+    width: 35%!important;
+}
+
+.woocommerce #content div.product div.summary, .woocommerce div.product div.summary, .woocommerce-page #content div.product div.summary, .woocommerce-page div.product div.summary {
+    float: right;
+    width: 60%!important;
 }
 
 /*************************Checkout Form*************************************/
@@ -1133,3 +1160,93 @@ table.cart input.checkout-btn[type="submit"] {
 /*************************Checkout Form*************************************/
 
 
+/*************************Products Tabel Content*************************************/
+
+table th.sName,table td.sName {
+	background: #3b3838;
+	padding: 10px;
+	color: #fff;
+}
+
+table td,table th{
+	border-bottom: 1px solid #c4c4c4;
+	padding: 10px;
+	font-family: "verdana";
+	font-size: 11px;
+	text-align: center;
+}
+
+table th{
+	border-bottom: 1px solid #c4c4c4;
+	padding: 10px;
+	background-color: #f1f1f1;
+	color: #666666;
+	text-align: center;
+	font-family: "verdana";
+	font-size: 11px;
+}
+
+.woocommerce form.cart{
+	margin-top: 50px!important;
+}
+
+.woocommerce span.catalog-down a,.woocommerce span.spec-down a{
+	color: #fff;
+}
+
+.woocommerce span.catalog-down,.woocommerce span.spec-down{
+	margin-right: 10px;
+	padding-top: 20px;
+	position: relative;
+	top:20px;
+	margin-top: 20px;
+	bottom: 20px;
+	background: #4d7fbc;
+	padding: 7px;
+	color:#fff;	
+	background:	linear-gradient(225deg, transparent 5px, #4d7fbc 0) top right;		
+	background-size: 100% 98%;
+	background-repeat: no-repeat;
+}
+
+/*************************Products Tabel Content*************************************/
+
+
+table.paginated{
+    width: 90%;
+}
+
+table.paginated thead {
+    background: #3b3838;
+    color: #fff;
+}
+
+table.paginated td {
+    width: 10em;
+    padding: 0.3em;
+}
+
+div.pager {
+    text-align: center;
+    margin: 1em 0;
+}
+
+div.pager span {
+    display: inline-block;
+    width: 1.8em;
+    height: 1.8em;
+    line-height: 1.8;
+    text-align: center;
+    cursor: pointer;
+    background: #3b3838;
+    color: #fff;
+    margin-right: 0.5em;
+}
+
+div.pager span.active {
+    background: #c00;
+}
+
+table.shop_table thead{
+	background: none;
+}

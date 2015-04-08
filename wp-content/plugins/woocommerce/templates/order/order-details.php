@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $order = wc_get_order( $order_id );
 
 ?>
-<h2><?php _e( 'Order Details', 'woocommerce' ); ?></h2>
+<h2><?php _e( 'Enquiry Details', 'woocommerce' ); ?></h2>
 <table class="shop_table order_details">
 	<thead>
 		<tr>
@@ -190,7 +190,7 @@ $order = wc_get_order( $order_id );
 <?php endif; ?>
 
 		<header class="title">
-			<h3><?php _e( 'Billing Address', 'woocommerce' ); ?></h3>
+			<h3><?php _e( 'Customer Address', 'woocommerce' ); ?></h3>
 		</header>
 		<address>
 			<?php

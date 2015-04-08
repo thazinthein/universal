@@ -43,7 +43,7 @@ Copyright© 2015 Universal Steel Industries Pte Ltd. All right reserved
 <script src="<?php bloginfo('template_url'); ?>/js/bootstrap.min.js"></script>
 <script>window.jQuery || document.write('<script src="<?php bloginfo('template_directory'); ?>/js/jquery.min.js"><\/script>');</script>
 <script src="<?php bloginfo('template_directory'); ?>/js/modernizr.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
 <script type='text/javascript'>//<![CDATA[ 
 
   $(document).ready(function () {
@@ -104,6 +104,37 @@ Copyright© 2015 Universal Steel Industries Pte Ltd. All right reserved
 $('#target').click(function() {
    localStorage.setItem('counter', ++counter);
     $('#output').html(function(i, val) { return val*1+1 });
+});
+</script>
+
+<script>
+
+
+$('table.paginated').each(function() {
+    var currentPage = 0;
+    var numPerPage = 5;
+    var $table = $(this);
+    $table.bind('repaginate', function() {
+        $table.find('tbody tr').hide().slice(currentPage * numPerPage, (currentPage + 1) * numPerPage).show();
+    });
+    $table.trigger('repaginate');
+    var numRows = $table.find('tbody tr').length;
+    var numPages = Math.ceil(numRows / numPerPage);
+    var $pager = $('<div class="pager"></div>');
+    var $previous = $('<span class="previous"><<</spnan>');
+    var $next = $('<span class="next">>></spnan>');
+    for (var page = 0; page < numPages; page++) {
+        $('<span class="page-number"></span>').text(page + 1).bind('click', {
+            newPage: page
+        }, function(event) {
+            currentPage = event.data['newPage'];
+            $table.trigger('repaginate');
+            $(this).addClass('active').siblings().removeClass('active');
+        }).appendTo($pager).addClass('clickable');
+    }
+    $pager.insertBefore($table).find('span.page-number:first').addClass('active');
+    $previous.insertBefore('span.page-number:first');
+    $next.insertAfter('span.page-number:last');
 });
 </script>
 

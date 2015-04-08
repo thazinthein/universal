@@ -15,7 +15,7 @@
 			<div class="entry-content">
 				
 				<?php the_content(); ?>
-
+				<?php if(function_exists('the_views')) { the_views(); } ?>
 				<?php wp_link_pages(array('before' => __('Pages: ','html5reset'), 'next_or_number' => 'number')); ?>
 				
 				<?php the_tags( __('Tags: ','html5reset'), ', ', ''); ?>

@@ -65,7 +65,7 @@
                         $productTitle =  apply_filters( 'woocommerce_cart_item_name', '<span class="festi-cart-title">'.$product->get_title().'</span>', $cart_item, $cart_item_key );    
                     }
                     
-                    $productTitle .= '<br>';
+                    $productTitle .= ' x ';
                     
                     if (($cart_item['variation_id'])) {
                         $content = $woocommerce->cart->get_item_data($cart_item, true);
@@ -105,10 +105,9 @@
                         <?php echo $productImg;?>
                     </td>
                     <td class="festi-cart-product-title" >
-                      <?php echo $productTitle;?>
-                      
+                      <?php echo $productTitle;?>                      
                     <?php  if (array_key_exists('displayProductTotalPrice', $settings)) { ?>
-                        <span class="festi-cart-product-count"><?php echo $cart_item['quantity'];?> x</span>
+                        <span class="festi-cart-product-count"><?php echo $cart_item['quantity'];?></span>
                         <span class="festi-cart-product-price"><?php echo woocommerce_price($product->get_price()); ?></span>
                     <?php } ?>
                     </td>
