@@ -52,10 +52,29 @@
 			<?php endwhile; endif; ?>
 		</div>
 	
-		<div class="col-xs-2">
-			<div class="widget"> 
-			    
-			</div>
+		<div class="col-md-2">      
+
+		        <div id="sidebar" class="">
+		              <div class="rightcol">              
+
+		                <div id="recent-posts-3" class="widget widget_recent_entries">    
+		                  <h3 class="widgettitle">Products</h3>   
+		                    <nav class="rightnav" role="navigation">
+		                      <?php echo do_shortcode('[accordionmenu id="uniqued1c3833" accordionmenu="225"]'); ?>     
+		                    </nav>
+		                </div> <!-- end .widget --><!-- end .widget -->             
+
+		              </div>
+
+		              <div class="rightcol">              
+
+		                <div class="contact-box">   
+		                  <h3>Contact Us</h3>
+		                  <div class="ph-no">(65) 6253 - 6001</div>
+		                </div> <!-- end .widget --><!-- end .widget -->             
+
+		              </div>
+		        </div>
 		</div>
 	</div>
 </div>

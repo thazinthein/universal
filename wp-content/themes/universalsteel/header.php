@@ -46,7 +46,7 @@
 		        <div class="col-xs-10">
 		        	<div class="row">
 		        		<div class="col-xs-12">
-		        			<div class="cart">
+		        			<div class="cartmenu">
 		        				<?php echo do_shortcode('[WooCommerceWooCartPro]'); ?>
 		        			</div>
 		        		</div>
@@ -54,7 +54,7 @@
 		            	
 					<div class="row">
 						<div class="col-xs-12">
-		            		<div class="navbar navbar-default topnav" role="navigation">
+		            	<!--	<div class="navbar navbar-default topnav" role="navigation">
 				                <div class="navbar-header">
 				                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 				                    <span class="sr-only">Toggle navigation</span>
@@ -81,14 +81,40 @@
 								        ?>	 
 					                </div>
 					            </ul>
+				            </div>  -->
+							
+							<div class="topnav" role="navigation">
+				               
+				                <ul class="nav">
+					                <div class="" role="navigation">
+					                   	<?php
+								            wp_nav_menu( array(
+								                'menu'              => 'topmenu',
+								                'theme_location'    => 'primary',
+								                'depth'             => 2,
+								                'container'         => 'div',
+								                'container_class'   => 'collapse navbar-collapse',
+								        		'container_id'      => 'bs-example-navbar-collapse-1',
+								                'menu_class'        => 'nav navbar-nav',
+								                'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+								                'walker'            => new wp_bootstrap_navwalker())
+								            );
+								        ?>	 
+					                </div>
+					            </ul>
 				            </div>
+
+
 				        </div>
 				    </div>
+
 		        </div>
 
 	          <div class="col-xs-2">
-	             <div class="logo">               
-	                <img src="<?php bloginfo('template_directory');?>/images/logo.jpg" class="img-responsive">
+	             <div class="logo"> 
+	             	<a href="<?php echo get_option('home'); ?>/">              
+	                	<img src="<?php bloginfo('template_directory');?>/images/logo.jpg" class="img-responsive">
+	                </a>
 	             </div>
 	          </div>
 

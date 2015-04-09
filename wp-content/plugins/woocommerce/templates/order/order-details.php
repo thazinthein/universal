@@ -15,14 +15,14 @@ $order = wc_get_order( $order_id );
 
 ?>
 <h2><?php _e( 'Enquiry Details', 'woocommerce' ); ?></h2>
-<table class="shop_table order_details">
+<!--<table class="shop_table order_details">
 	<thead>
 		<tr>
 			<th class="product-name"><?php _e( 'Product', 'woocommerce' ); ?></th>
-			<!--<th class="product-total"><?php _e( 'Total', 'woocommerce' ); ?></th>-->
-		</tr>
-	</thead>
-	<tbody>
+			<!--<th class="product-total"><?php _e( 'Total', 'woocommerce' ); ?></th>
+		</tr> 
+	</thead> 
+	<tbody> -->
 		<?php
 		if ( sizeof( $order->get_items() ) > 0 ) {
 
@@ -32,8 +32,14 @@ $order = wc_get_order( $order_id );
 
 				if ( apply_filters( 'woocommerce_order_item_visible', true, $item ) ) {
 					?>
-					<tr class="<?php echo esc_attr( apply_filters( 'woocommerce_order_item_class', 'order_item', $item, $order ) ); ?>">
-						<td class="product-name">
+                    <table class="shop_table order_details">
+	<thead>
+		<tr>
+			<th class="product-name"><?php _e( 'Product', 'woocommerce' ); ?></th>
+			<!--<th class="product-total"><?php _e( 'Total', 'woocommerce' ); ?></th>-->
+
+					<td class="<?php echo esc_attr( apply_filters( 'woocommerce_order_item_class', 'order_item', $item, $order ) ); ?>">
+						
 							<?php
 								if ( $_product && ! $_product->is_visible() ) {
 									echo apply_filters( 'woocommerce_order_item_name', $item['name'], $item );
@@ -67,9 +73,9 @@ $order = wc_get_order( $order_id );
 								do_action( 'woocommerce_order_item_meta_end', $item_id, $item, $order );
 							?>
 						</td>
-						<td class="product-total">
+			<!--			<td class="product-total">
 							<?php echo $order->get_formatted_line_subtotal( $item ); ?>
-						</td>
+						</td>  -->
 					</tr>
 					<?php
 				}
@@ -86,7 +92,7 @@ $order = wc_get_order( $order_id );
 
 		do_action( 'woocommerce_order_items_table', $order );
 		?>
-	</tbody>
+	
 	<tfoot>
 	<?php
 		$has_refund = false;
@@ -159,6 +165,7 @@ $order = wc_get_order( $order_id );
 			</tr>
 		<?php } ?>
 	</tfoot>
+    </thead>
 </table>
 
 <?php do_action( 'woocommerce_order_details_after_order_table', $order ); ?>

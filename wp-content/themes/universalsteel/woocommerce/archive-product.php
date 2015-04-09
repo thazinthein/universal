@@ -123,8 +123,7 @@ Template Name: Products
       ?>
 
   </div>
-  <div class="col-xs-2">      
-
+  <div class="col-xs-2">
         <div id="sidebar" class="">
               <div class="rightcol">              
 

@@ -67,10 +67,10 @@ $hideCart = (array_key_exists('hideCart', $settings) && !$productsCount) ? 'disp
                 } elseif ($product->post->post_parent) {
                     $productTitle = apply_filters( 'woocommerce_cart_item_name', sprintf( '<a class="festi-cart-title" href="%s">%s</a>', get_permalink($product->post->post_parent), $product->get_title() ), $cart_item, $cart_item_key );  
                 } else {
-                    $productTitle =  apply_filters( 'woocommerce_cart_item_name', '<span class="festi-cart-title">'.$product->get_title().'</span>', $cart_item, $cart_item_key );    
+                    $productTitle =  apply_filters( 'woocommerce_cart_item_name', '<span class="festi-cart-title" style="float:left">'.$product->get_title().'</span>', $cart_item, $cart_item_key );    
                 }
                 
-                $productTitle .= '<br>';
+                $productTitle .= ' x ';
                 
                 if (($cart_item['variation_id'])) {
                     $content = $woocommerce->cart->get_item_data($cart_item, true);
@@ -113,7 +113,7 @@ $hideCart = (array_key_exists('hideCart', $settings) && !$productsCount) ? 'disp
                   <?php echo $productTitle;?>
                   
                 <?php  if (array_key_exists('displayProductTotalPrice', $settings)) { ?>
-                    <span class="festi-cart-product-count"><?php echo $cart_item['quantity'];?> x</span>
+                    <span class="festi-cart-product-count"><?php echo $cart_item['quantity'];?></span>
                     <span class="festi-cart-product-price"><?php echo woocommerce_price($product->get_price()); ?></span>
                 <?php } ?>
                 </td>

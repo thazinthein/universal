@@ -112,7 +112,7 @@ class WC_Checkout {
 			'order_comments' => array(
 				'type' => 'textarea',
 				'class' => array('notes'),
-				'label' => __( 'Order Notes', 'woocommerce' ),
+				'label' => __( 'Enquiry Notes', 'woocommerce' ),
 				'placeholder' => _x('Notes about your enquiry.', 'placeholder', 'woocommerce')
 			)
 		);

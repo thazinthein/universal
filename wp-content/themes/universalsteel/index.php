@@ -40,36 +40,35 @@
                 
                 <div class="col-xs-4 home-boxes">
                   <div class="box job-scope">
-                      <h2>Job Scope</h2>
+                      <h2><a href="job-scope/">Job Scope</a></h2>
                       <p>Our company<br>
                          Job Scope</p>
                   </div>
 
                   <div class="box about">
-                      <h2>About Us</h2>
+                      <h2><a href="about-us/">About Us</a></h2>
                       <p>Welcome to<br>
                          Universal Steel Industries</p>
                   </div>
 
                   <div class="box notice">
-                      <h2>Notice & News</h2>
+                      <h2><a href="notice-news/">Notice & News</a></h2>
                       <p>News,<br>
                          Notice & News,<br>
                          Video</p>
                   </div>
 
                   <div class="box download">
-                      <h2>Download</h2>
+                      <h2><a href="download/">Download</a></h2>
                       <p>Spec Sheet,<br>
                         Catalogue,<br>
                         Photo</p>
                   </div>
 
                   <div class="box map">
-                      <h2>Map</h2>
+                      <h2><a href="contact-us/">Map</a></h2>
                       <p>Direction<br>
                         to Universal Steel Industries</p>
-
                   </div>
                 </div>
               

@@ -64,6 +64,6 @@ if ( $order ) : ?>
 
 <?php else : ?>
 
-	<p><?php _e( 'Thank you. Your quotation has been received.', 'woocommerce' ); ?></p>
+	<p><?php _e( 'Thank you. Your enquiry has been received.', 'woocommerce' ); ?></p>
 
 <?php endif; ?>

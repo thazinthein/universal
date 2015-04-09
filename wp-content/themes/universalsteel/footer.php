@@ -6,13 +6,12 @@
  */
 ?>
 
-<footer class="footerwrapper">
+     <div class="footerwrapper">
         <div class="container">
           <div class="row">
 
             <div class="col-xs-10">              
                   <p>Contact Us<br><br>
-
 20 Ang Mo Kio Industrial Park 2A, #01-18/19, AMK Techlink Singapore 567761  Tel : (65) 6253 – 6001 Fax : (65) 6250 – 0071 SERVICE HOT LINE : (65) 6280 – 7333<br>
 Copyright© 2015 Universal Steel Industries Pte Ltd. All right reserved
                   </p>                
@@ -28,7 +27,7 @@ Copyright© 2015 Universal Steel Industries Pte Ltd. All right reserved
 
           </div>
         </div>
-      </footer>
+      </div>
 </div>
 
 	<?php wp_footer(); ?>
