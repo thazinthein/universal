@@ -1339,24 +1339,21 @@ table.shop_table th{
 	width: 40%;
 }
 
-table.cart{
-	width: 60%!important;
-}
 
 table.cart td.product-remove{
-	width: 150px!important;
+	max-width: 50px!important;
 }
 
 table.cart td.product-thumbnail{
-	width: 20%!important;
+	min-width: 40%!important;
 }
 
 table.cart td.product-name{
-	width: 20%!important;
+	width: 100%!important;
 }
 
-.woocommerce table.shop_table td.product-quantity{
-	width: 20%!important;
+table.cart td.product-quantity{
+	width: 40%!important;
 }
 
 .cart-empty{

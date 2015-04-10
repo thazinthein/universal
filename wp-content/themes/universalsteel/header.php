@@ -83,10 +83,10 @@
 					            </ul>
 				            </div>  -->
 							
-							<div class="topnav" role="navigation">
+							<div class="topnav">
 				               
-				                <ul class="nav">
-					                <div class="" role="navigation">
+				             <!--   <ul class="nav"> -->
+					                <div class="">
 					                   	<?php
 								            wp_nav_menu( array(
 								                'menu'              => 'topmenu',
@@ -101,7 +101,7 @@
 								            );
 								        ?>	 
 					                </div>
-					            </ul>
+					          <!--  </ul> -->
 				            </div>
 
 

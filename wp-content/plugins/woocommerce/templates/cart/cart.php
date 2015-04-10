@@ -42,7 +42,7 @@ $woocommerce->show_messages();
 					?>
 					<tr class = "<?php echo esc_attr( apply_filters('woocommerce_cart_table_item_class', 'cart_table_item', $values, $cart_item_key ) ); ?>">
 						<!-- Remove from cart link -->
-						<td class="product-remove">
+						<td class="product-remove" style="width:50px;">
 							<?php
 								echo apply_filters( 'woocommerce_cart_item_remove_link', sprintf('<a href="%s" class="remove" title="%s">&times;</a>', esc_url( $woocommerce->cart->get_remove_url( $cart_item_key ) ), __( 'Remove this item', 'woocommerce' ) ), $cart_item_key );
 							?>
@@ -61,7 +61,7 @@ $woocommerce->show_messages();
 						</td>
 
 						<!-- Product Name -->
-						<td class="product-name">
+						<td class="product-name" style="min-width:300px;">
 							<?php
 								if ( ! $_product->is_visible() || ( ! empty( $_product->variation_id ) && ! $_product->parent_is_visible() ) )
 									echo apply_filters( 'woocommerce_in_cart_product_title', $_product->get_title(), $values, $cart_item_key );
@@ -87,7 +87,7 @@ $woocommerce->show_messages();
 						</td>-->
 
 						<!-- Quantity inputs -->
-						<td class="product-quantity">
+						<td class="product-quantity" style="min-width:300px;">
 							<?php
 								if ( $_product->is_sold_individually() ) {
 									$product_quantity = sprintf( '1 <input type="hidden" name="cart[%s][qty]" value="1" />', $cart_item_key );
