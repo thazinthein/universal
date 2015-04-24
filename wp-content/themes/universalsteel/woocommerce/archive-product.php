@@ -79,7 +79,7 @@ Template Name: Products
 
           <?php woocommerce_product_loop_start(); ?>
 
-            <?php woocommerce_product_subcategories(); ?>
+            <?php woocommerce_product_subcategories(array('force_display' => true)); ?>
 
             <?php while ( have_posts() ) : the_post(); ?>
 

@@ -28,7 +28,7 @@ class Mega_Menu_Walker extends Walker_Nav_Menu {
 
 		$indent = str_repeat("\t", $depth);
 
-		$output .= "\n$indent<ul class=\"mega-sub-menu\">\n";
+		$output .= "\n$indent<ul style='width: 1423px; display: none;z-index:9999;background-color:red;left:-320px;padding-left:9em;margin-left:10em;padding-top:0px;padding-bottom:0px;' class=\"mega-sub-menu\">\n";
 	}
 
 	/**

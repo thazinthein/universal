@@ -39,8 +39,31 @@ Template Name: Products Page
 
       <h1 class="page-title"><?php woocommerce_page_title(); ?></h1>
       
-      <?php echo do_shortcode('[product_categories number="12" parent="0" columns="5"]');  ?>
+      <?php //echo do_shortcode('[product_categories number="12" parent="0" columns="5"]');  ?>
+      <?php //echo do_shortcode('[product_categories]');  ?>
       
+
+      <div class="productcatego-wrap">
+          <div class="productcatego-icecube-wrap">
+            <h2><?php echo do_shortcode('[product_categories number="" columns="4" ids="28"]');  ?></h2>
+            <ul>
+              <li>Modular Type</li>
+              <li>Self Contained Type</li>
+              <li>Snow Flake Ice Machine</li>
+              <li>Under Counter Type</li>              
+            </ul>
+          </div>
+      </div>
+
+
+      <div class="productcatego-wrap">
+          <div class="productcatego-icecube-wrap">
+            <h2><?php echo do_shortcode('[product_categories number="" columns="4" ids="53"]');  ?></h2>
+            
+          </div>
+      </div>
+
+
 
   </div>
   <div class="col-md-2">      

@@ -26,44 +26,73 @@ if ( empty( $woocommerce_loop['columns'] ) )
 // Increase loop count
 $woocommerce_loop['loop']++;
 ?>
-<li class="product-category product<?php
-    if ( ( $woocommerce_loop['loop'] - 1 ) % $woocommerce_loop['columns'] == 0 || $woocommerce_loop['columns'] == 1 )
-        echo ' first';
-	if ( $woocommerce_loop['loop'] % $woocommerce_loop['columns'] == 0 )
-		echo ' last';
-	?>">
+<div class="productcatego-wrap">
+	<li class="product-category product<?php
+	    if ( ( $woocommerce_loop['loop'] - 1 ) % $woocommerce_loop['columns'] == 0 || $woocommerce_loop['columns'] == 1 )
+	        echo ' first';
+		if ( $woocommerce_loop['loop'] % $woocommerce_loop['columns'] == 0 )
+			echo ' last';
+		?>">
 
-	<?php do_action( 'woocommerce_before_subcategory', $category ); ?>
+		<?php do_action( 'woocommerce_before_subcategory', $category ); ?>
 
-	<a href="<?php echo get_term_link( $category->slug, 'product_cat' ); ?>">
+		<a href="<?php echo get_term_link( $category->slug, 'product_cat' ); ?>">
 
-		<?php
-			/**
-			 * woocommerce_before_subcategory_title hook
-			 *
-			 * @hooked woocommerce_subcategory_thumbnail - 10
-			 */
-			do_action( 'woocommerce_before_subcategory_title', $category );
-		?>
-
-	<!--	<h3>
 			<?php
-				echo $category->name;
-
-				if ( $category->count > 0 )
-					echo apply_filters( 'woocommerce_subcategory_count_html', ' <mark class="count">(' . $category->count . ')</mark>', $category );
+				/**
+				 * woocommerce_before_subcategory_title hook
+				 *
+				 * @hooked woocommerce_subcategory_thumbnail - 10
+				 */
+				do_action( 'woocommerce_before_subcategory_title', $category );
 			?>
-		</h3>-->
 
-		<?php
-			/**
-			 * woocommerce_after_subcategory_title hook
-			 */
-			do_action( 'woocommerce_after_subcategory_title', $category );
-		?>
+			<h2>
 
-	</a>
+				<?php
+				global $wp_query;
+				$category_name = $category->name;
 
-	<?php do_action( 'woocommerce_after_subcategory', $category ); ?>
+				if( $category_name ) {
+				$category_object = get_term_by('name', $category_name, 'product_cat');
+				$category_id = $category_object->term_id;
+				}
+					
+					echo $category->name;	
+							
 
-</li>
+					if ( $category->count > 0 )
+						echo apply_filters( 'woocommerce_subcategory_count_html', '', $category );
+				?>
+			</h2>
+
+			<?php $wcatTerms = get_terms('product_cat', array('hide_empty' => 0, 'orderby' => 'ASC', 'parent' =>$category_id, )); 
+        	foreach($wcatTerms as $wcatTerm) : 
+        		$wthumbnail_id = get_woocommerce_term_meta( $wcatTerm->term_id, 'thumbnail_id', true );
+        	?>
+
+    		<div class="shop-subcat">
+    			<a href="<?php echo get_term_link( $wcatTerm->slug, $wcatTerm->taxonomy ); ?>"></a>
+    			<h3 class="text-center"><a href="<?php echo get_term_link( $wcatTerm->slug, $wcatTerm->taxonomy ); ?>"><?php echo $wcatTerm->name; ?></a></h3>
+    		</div>
+
+    <?php endforeach; ?>
+
+
+   
+    	
+
+
+			<?php
+				/**
+				 * woocommerce_after_subcategory_title hook
+				 */
+				do_action( 'woocommerce_after_subcategory_title', $category );
+			?>
+
+		</a>
+
+		<?php do_action( 'woocommerce_after_subcategory', $category ); ?>
+
+	</li>
+</div>

@@ -31,6 +31,9 @@
 	<script src="<?php bloginfo('template_url'); ?>/js/modernizr.custom.js"></script>
 	<?php wp_head(); ?>
 	
+
+
+
 </head>
 
 <body <?php body_class(); ?>>
@@ -39,7 +42,7 @@
 	<div>
 
 		<header>
-	
+
 	      <div class="container">
 	        <div class="row">
 				
@@ -51,10 +54,10 @@
 		        			</div>
 		        		</div>
 		        	</div>
-		            	
+		           
 					<div class="row">
 						<div class="col-xs-12">
-		            	<!--	<div class="navbar navbar-default topnav" role="navigation">
+		            		<div class="navbar navbar-default topnav" role="navigation">
 				                <div class="navbar-header">
 				                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 				                    <span class="sr-only">Toggle navigation</span>
@@ -66,51 +69,18 @@
 				                </div>
 				                <ul class="nav navbar-nav navbar-right">
 					                <div class="navbar-collapse collapse" role="navigation">
-					                   	<?php
-								            wp_nav_menu( array(
-								                'menu'              => 'topmenu',
-								                'theme_location'    => 'primary',
-								                'depth'             => 2,
-								                'container'         => 'div',
-								                'container_class'   => 'collapse navbar-collapse',
-								        		'container_id'      => 'bs-example-navbar-collapse-1',
-								                'menu_class'        => 'nav navbar-nav',
-								                'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-								                'walker'            => new wp_bootstrap_navwalker())
-								            );
-								        ?>	 
+					                   	<?php wp_nav_menu(array('menu'=> 'topnav'));?>	 
 					                </div>
 					            </ul>
-				            </div>  -->
+				            </div>  
 							
-							<div class="topnav" role="navigation">
-				               
-				                <ul class="nav">
-					                <div class="" role="navigation">
-					                   	<?php
-								            wp_nav_menu( array(
-								                'menu'              => 'topmenu',
-								                'theme_location'    => 'primary',
-								                'depth'             => 2,
-								                'container'         => 'div',
-								                'container_class'   => 'collapse navbar-collapse',
-								        		'container_id'      => 'bs-example-navbar-collapse-1',
-								                'menu_class'        => 'nav navbar-nav',
-								                'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-								                'walker'            => new wp_bootstrap_navwalker())
-								            );
-								        ?>	 
-					                </div>
-					            </ul>
-				            </div>
+							
 
-
-				     
-
+				            
 
 				        </div>
 				    </div>
-
+				    
 		        </div>
 
 	          <div class="col-xs-2">
@@ -125,10 +95,22 @@
 	      </div>
 
 
+
+
 	    </header>	
-	  
          
-          			
+       <div id="first-widget" class="widget-container">
+                
+     </div><!-- .first-widget !-->
+    <div id="second-widget" class="widget-container">
+               
+    </div><!-- .second-widget !-->
+    <div id="third-widget" class="widget-container">
+                
+    </div><!-- .third-widget !-->
+    <div id="fourth-widget" class="widget-container">
+                
+    </div><!-- .fourth-widget !-->   			
     			
 
 	    	
