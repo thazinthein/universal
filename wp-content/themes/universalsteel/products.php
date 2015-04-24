@@ -46,12 +46,7 @@ Template Name: Products Page
       <div class="productcatego-wrap">
           <div class="productcatego-icecube-wrap">
             <h2><?php echo do_shortcode('[product_categories number="" columns="4" ids="28"]');  ?></h2>
-            <ul>
-              <li>Modular Type</li>
-              <li>Self Contained Type</li>
-              <li>Snow Flake Ice Machine</li>
-              <li>Under Counter Type</li>              
-            </ul>
+            
           </div>
       </div>
 

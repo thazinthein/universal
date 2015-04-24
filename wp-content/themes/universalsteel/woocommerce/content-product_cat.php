@@ -72,8 +72,10 @@ $woocommerce_loop['loop']++;
         	?>
 
     		<div class="shop-subcat">
-    			<a href="<?php echo get_term_link( $wcatTerm->slug, $wcatTerm->taxonomy ); ?>"></a>
-    			<h3 class="text-center"><a href="<?php echo get_term_link( $wcatTerm->slug, $wcatTerm->taxonomy ); ?>"><?php echo $wcatTerm->name; ?></a></h3>
+    			
+    			<h3 class="text-center"><a href="<?php echo get_term_link( $wcatTerm->slug, $wcatTerm->taxonomy, $wcatTerm->count ); ?>"><?php echo $wcatTerm->name;//echo $wcatTerm->count; ?></a>
+
+    			</h3>
     		</div>
 
     <?php endforeach; ?>

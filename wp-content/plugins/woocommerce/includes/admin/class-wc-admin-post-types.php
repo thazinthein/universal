@@ -158,7 +158,7 @@ class WC_Admin_Post_Types {
 		$columns['order_status']     = '<span class="status_head tips" data-tip="' . esc_attr__( 'Status', 'woocommerce' ) . '">' . esc_attr__( 'Status', 'woocommerce' ) . '</span>';
 		$columns['order_title']      = __( 'Enquiry', 'woocommerce' );
 		$columns['order_items']      = __( 'Purchased', 'woocommerce' );
-		$columns['shipping_address'] = __( 'Ship to', 'woocommerce' );
+		$columns['shipping_address'] = __( 'Customer Address', 'woocommerce' );
 		$columns['customer_message'] = '<span class="notes_head tips" data-tip="' . esc_attr__( 'Customer Message', 'woocommerce' ) . '">' . esc_attr__( 'Customer Message', 'woocommerce' ) . '</span>';
 		$columns['order_notes']      = '<span class="order-notes_head tips" data-tip="' . esc_attr__( 'Order Notes', 'woocommerce' ) . '">' . esc_attr__( 'Order Notes', 'woocommerce' ) . '</span>';
 		$columns['order_date']       = __( 'Date', 'woocommerce' );
