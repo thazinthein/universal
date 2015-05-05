@@ -5,7 +5,7 @@
  * @since HTML5 Reset 2.0
  */
 ?><!doctype html>
-
+<head>
 
 	<title><?php wp_title( '|', true, 'right' ); ?></title>
 
@@ -25,10 +25,11 @@
     
     
     <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" /> 
-   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+ <!--  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+   	<script src="<?php bloginfo('template_url'); ?>/js/modernizr.custom.js"></script>-->
    	<script src="<?php bloginfo('template_url'); ?>/js/jquery-1.11.0.min.js"></script>
    	<script src="<?php bloginfo('template_url'); ?>/js/bootstrap.min.js"></script>
-	<script src="<?php bloginfo('template_url'); ?>/js/modernizr.custom.js"></script>
+	
 	<?php wp_head(); ?>
 	
 </head>
@@ -45,9 +46,15 @@
 				
 		        <div class="col-xs-10">
 		        	<div class="row">
-		        		<div class="col-xs-12">
+		        		<div class="col-xs-10">
 		        			<div class="cartmenu">
 		        				<?php echo do_shortcode('[WooCommerceWooCartPro]'); ?>
+		        			</div>
+		        		</div>
+		        		<div class="col-xs-2">
+		        			<div class="homemenu">
+		        				<a href="<?php echo get_option('home'); ?>">Home</a>
+		        				<a href="<?php echo get_option('home'); ?>/contact-us">Contact Us</a>
 		        			</div>
 		        		</div>
 		        	</div>

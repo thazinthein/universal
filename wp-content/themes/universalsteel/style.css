@@ -113,6 +113,10 @@ body{
 	color: #878686;
 }
 
+header{
+	border-bottom:1px solid #d3d2d2;
+}
+
 .menu ul{
 	float: right;
 	padding-top: 53px;
@@ -157,15 +161,16 @@ body{
 .slider-wrapper,.slider-wrapper img{
 	padding: 0px;
 	margin:0px;
-	border-top: 1px;
+	/*border-top: 1px;*/
 	height: 631px;
 }
 
 .slider-wrapper{
-	border-top:1px solid #d3d2d2;
+	/*border-top:1px solid #d3d2d2;*/
 }
 
 .turbo-air{
+	margin-top: -1px;
 	background: url('images/turbo-air.jpg') top center no-repeat;border-right: none;
 }
 
@@ -228,6 +233,7 @@ body{
 }
 
 .turbo-flame{
+	margin-top: -1px;
 	background: url('images/turbo-flame.jpg') top center no-repeat;border-right: none;
 }
 
@@ -272,6 +278,7 @@ body{
 }
 
 .job-scope{
+	margin-top: -1px;
 	background: url('images/job-scope.jpg') top center no-repeat;
 }
 
@@ -376,6 +383,7 @@ table.brandslogo td{
 	color: #2e75b6;	
 	padding-bottom: 0px;
 	margin-bottom: 0px;
+
 }
 
 .navbar-collapse{
@@ -396,6 +404,7 @@ table.brandslogo td{
 	font-size: 15px;
 	font-family: 'Arial';
 	float: right;
+	right: 0px!important;
 }
 
 .topnav ul {  
@@ -448,11 +457,11 @@ table.brandslogo td{
 }
 
 .topnav li#mega-menu-item-439{
-	min-width: 130px!important;
+	min-width: 126px!important;
 }
 
 .topnav li#mega-menu-item-21{
-	min-width: 120px;
+	min-width: 126px;
 }
 
 .topnav li#mega-menu-item-18{
@@ -460,17 +469,21 @@ table.brandslogo td{
 }
 
 .topnav li#mega-menu-item-22{
-	min-width: 150px;
+	min-width: 144px;
 }
 
 .topnav li#mega-menu-item-20{
-	min-width: 100px;
+	
 }
 
 .topnav div#mega-menu-wrap-primary ul#mega-menu-primary li ul.mega-sub-menu{
-	padding-left: 530px!important;
+	padding-left: 342px!important;
 	padding-top: 20px;
 	padding-bottom: 0px!important;
+}
+
+.topnav div#mega-menu-wrap-primary ul#mega-menu-primary .menu-notice-submenu-container{
+	margin-left: -16px!important;		
 }
 
 div.topnav div#mega-menu-wrap-primary ul#mega-menu-primary li ul.menu{
@@ -530,6 +543,7 @@ div.topnav div#mega-menu-wrap-primary ul.mega-sub-menu{
 	background: #fff!important; 
 	border-bottom: 1px solid #d8d8d8!important;
 	min-height: 180px!important;	
+	left:-495px!important;
 	/*background:
 		
 		linear-gradient(225deg, transparent 30px, #f1f1f1 0) top right,
@@ -537,13 +551,19 @@ div.topnav div#mega-menu-wrap-primary ul.mega-sub-menu{
 	background-size: 100% 79%!important;*/
 	background-repeat: no-repeat!important;
 	/*width: 710px!important;*/
-	min-width: 1400px!important;
-	margin:0 auto!important;
-	margin-top: 0px!important;
-	overflow: hidden;
-	
-}
+	/*min-width: 1620px!important;left:-400px!important;*/
 
+	margin:0 auto!important;
+	margin-left: 100px;	
+	margin-top: 0px!important;
+	overflow: hidden!important;
+	clear: both;
+	position: absolute!important;
+	display: inline-block;
+	white-space: nowrap!important;
+	overflow-x:hidden!important; 
+}
+div.topnav div#mega-menu-wrap-primary li ul.mega-sub-menu:hover{min-width: 2000px;position: relative;display: block;overflow: hidden!important;}
 div.topnav div#mega-menu-wrap-primary ul.mega-sub-menu li.mega-menu-item ul.menu{
 /*	border:1px solid red!important;
 	max-width: 200px!important;
@@ -552,8 +572,7 @@ div.topnav div#mega-menu-wrap-primary ul.mega-sub-menu li.mega-menu-item ul.menu
 	position: relative!important;*/
 }
 
-div.topnav div#mega-menu-wrap-primary ul.mega-sub-menu li.mega-menu-item{
-	
+div.topnav div#mega-menu-wrap-primary ul.mega-sub-menu li.mega-menu-item{	
 	max-width: 130px!important;
 	margin-right: 0px!important;
 	right: 0;
@@ -563,7 +582,8 @@ div.topnav div#mega-menu-wrap-primary ul.mega-sub-menu li.mega-menu-item{
 
 .cartmenu{float: right;padding-top: 5px;position: relative;height: 40px;}
 
-
+.homemenu{float: right;padding-top: 15px;position: relative;height: 40px;}
+.homemenu a{color: #858585;font-family: "Verdana";font-size: 11px;padding-left: 7px;}
 
 .nav-top{
     background: none repeat scroll 0 0 #f5f4e9;
@@ -583,18 +603,22 @@ div.topnav div#mega-menu-wrap-primary ul.mega-sub-menu{}
 
 div.topnav div#mega-menu-wrap-primary ul.mega-sub-menu {}
 
- {color: #c1c1c1 !important;}
+{color: #c1c1c1 !important;}
 
- div.topnav div#mega-menu-wrap-primary ul.mega-sub-menu li.mega-menu-item ul.menu li.menu-item a:hover{
+div.topnav div#mega-menu-wrap-primary ul.mega-sub-menu li.mega-menu-item ul.menu li.menu-item a:hover{
  	background: #339fd3!important;
  	color: #fff!important;
  	padding: 7px!important;
- }
+}
 
-  div.topnav div#mega-menu-wrap-primary ul.mega-sub-menu li.mega-menu-item ul.menu li.menu-item a:hover{
+div.topnav div#mega-menu-wrap-primary ul.mega-sub-menu li.mega-menu-item ul.menu li.menu-item a:hover{
   	color: #fff!important;
   	padding: 7px!important;
-  }
+}
+
+div.topnav div#mega-menu-wrap-primary .submenubg{
+ 	width: 1423px; display: none;padding-top:0px;padding-bottom:0px;
+}
 
 /************************TopMenu****************************/
 
@@ -645,12 +669,19 @@ h2.product_title{
 
 .pagehead{
 	background: url('images/pagehead_bg.gif') repeat-x;
+	background-width:100%!important;
+	min-width: 100%!important;
 	height: 145px;
+	margin-left: auto;
+    margin-right: auto;	
+    display: table;
 }
 
 .pagehead-title-bg{
 	background: url('images/pagehead_title_bg.png') top left no-repeat;
-	height: 102px;	
+	background-width:100%!important;
+	height: 106px;	
+	min-width: 100%!important;	
 }
 
 .pagehead-title-bg img{
@@ -659,7 +690,7 @@ h2.product_title{
 
 .pagehead-title-bg-right{
 	background: url('images/pagehead_title_bg-right.png') top right no-repeat;
-	height: 132px;
+	height: 144px;
 	width: 414px;
 	float: right;
 }
@@ -674,11 +705,11 @@ div.product {
 
 /******************Breadcrumbs***************************/
 nav#crumbs{
-	min-height: 50px;
+	/*min-height: 50px;*/
 }
 
 .breadcurmb{
-	padding-top:16px;
+	padding-top:14px;
 	position: relative;
 	font: 11px Arial, Helvetica, sans-serif;
 
@@ -703,7 +734,6 @@ nav#crumbs span.breadcrumb-bg{
 
 .breadcurmb span.breadcrumb-bg{
 min-height:50px!important;
-
 background-image:url('images/beradcrumb-arrow.png');
 background-repeat:no-repeat;
 background-position:right top;
@@ -721,7 +751,7 @@ color:#000;
 
 /******************RightNav***************************/
 .rightnav{
-	background: #999999;
+	background: #7a7a7a;
 	color: #fff;	
 }
 
@@ -883,12 +913,87 @@ table.noticetbl td{
 
 /******************Notice & News***************************/
 
+
+/***********************Contact Form******************************/
+
+.address {
+	margin-top: 60px;
+	font-weight: bold;
+}
+
+.address .contact-img{background: url(images/contact-img.jpg) left top no-repeat;padding-left: 105px;min-height: 105px;margin-top: 30px;}
+.address .officeaddress{background: url(images/mappoint.png) left top no-repeat;padding-left: 50px;min-height: 40px;margin-top: 30px;}
+.address .email{background: url(images/email.png) left top no-repeat;padding-left: 50px;min-height: 40px;}
+.address .fax{background: url(images/fax.png) left top no-repeat;padding-left: 50px;min-height: 40px;margin-top: 30px;}
+
+.address h2{
+  	color: #000;
+	font-family: "Verdana";
+	font-size: 18px;
+	font-weight: bold;
+	border-bottom: 2px solid #b7b7b7;
+	padding-bottom: 10px;
+}
+
+.contactform h2{
+	color: #000;
+	font-family: "Verdana";
+	font-size: 18px;
+	font-weight: bold;
+	border-bottom: 2px solid #b7b7b7;
+	padding-bottom: 10px;
+}
+
+.contactform-wrapper{
+  width: 100%;
+  
+  height: auto;
+  
+}
+
+.contactform{  
+  width: 100%;
+  min-height: 550px;  
+  margin-top: 30px;
+  padding: 10px;
+  -webkit-box-shadow: 0px 5px 7px 0px rgba(50, 50, 50, 0.47);
+  -moz-box-shadow:    0px 5px 7px 0px rgba(50, 50, 50, 0.47);
+  box-shadow:         0px 5px 7px 0px rgba(50, 50, 50, 0.47);
+  margin-bottom: 30px;
+  padding-left: 30px;
+}
+
+.contac-left{
+  border-right: 1px solid #eaeaea;
+  
+}
+
+.contac-right-address {
+  line-height: 38px;
+  
+}
+
+.contactform input[type="text"],.contactform input[type="email"],.contactform textarea{min-width: 80%! important;}
+.contactform input,.contactform textarea{background: #efefef;border: none; min-height: 30px;padding: 10px;}
+form#cntctfrm_contact_form div{min-height: 30px;}
+form.wpcf7-form p{margin-top: 10px;color: #797979;padding-bottom: 10px;}
+.contactform input[type="submit"]{background: none repeat scroll 0 0 #333333 !important;height: 30px;color: #fff;border-radius: 5px;}
+
+.address img{float: left;margin-right: 20px;}
+
+.address-office{margin-left: 25px;position: relative;}
+
+.contact-img img{margin-bottom: 30px;}
+
+/***********************Contact Form******************************/
+
 /******************Footer***************************/
 
 .footerwrapper{
-	background: #9c9b9b;
+	background: #7a7a7a;
 	min-height: 146px;
 	position:absolute;
+	margin-top: 2px;
 	
 	/*background:
 		linear-gradient(135deg, transparent 30px, #3b3838 0) top left,
@@ -1003,7 +1108,7 @@ ul.product-categories,ul.wooc_sclist_top{padding-left: 0px;}
 	visibility: hidden;
 }
 
-.pagehead-title{min-height: 145px;position: relative;}
+/*.pagehead-title{min-height: 145px;position: relative;}*/
 .woocommerce li.woocommerce_subcategories_widget ul.product-categories li{
 	list-style-type: none;
 	display: inline;
@@ -1460,10 +1565,11 @@ ul.wooc_sclist{}
 	font-family: "Verdana"!important;
 	font-size: 18px!important;
 	margin-right: 10px!important;
-	margin-left: 15px!important;
-	padding-top: 15px!important;
+	
+	margin-top: 55px!important;
 	color: #339fd3!important;
 	letter-spacing: -.5px!important;
+	text-align: center;
 }
 
 .shop-subcat h3{

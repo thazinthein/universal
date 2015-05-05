@@ -71,12 +71,12 @@ $woocommerce_loop['loop']++;
         		$wthumbnail_id = get_woocommerce_term_meta( $wcatTerm->term_id, 'thumbnail_id', true );
         	?>
 
-    		<div class="shop-subcat">
+    	<!--	<div class="shop-subcat">
     			
     			<h3 class="text-center"><a href="<?php echo get_term_link( $wcatTerm->slug, $wcatTerm->taxonomy, $wcatTerm->count ); ?>"><?php echo $wcatTerm->name;//echo $wcatTerm->count; ?></a>
 
     			</h3>
-    		</div>
+    		</div>-->
 
     <?php endforeach; ?>
 

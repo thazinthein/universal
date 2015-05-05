@@ -6,11 +6,11 @@
  */
  get_header(); ?>
 
-	<div class="slider container">
+	<!--<div class="slider container">
         <div class="col-xs-12">
          
         </div>        
-    </div>
+  </div>-->
 
   <div class="container">
         <div class="row">

@@ -9,7 +9,7 @@ Template Name: Promotions
     
     <div class="row">
           <div class="col-md-12 pagehead-title-bg">
-        <img src="<?php bloginfo('template_directory');?>/images/pagehead_title_bg-right.png" class="img-responsive">
+        <img src="<?php bloginfo('template_directory');?>/images/pagehead_news_bg-right.png" class="img-responsive">
         <div class="pagehead-title">          
             <h2>
               <?php
@@ -73,7 +73,7 @@ Template Name: Promotions
 
                 <div class="contact-box">   
                   <h3>Contact Us</h3>
-                  <div class="ph-no">(65) 6253 - 6001</div>
+                  <div class="ph-no">Sales : (65) 6253-6001<br> Services : (65) 6280-7333</div>
                 </div> <!-- end .widget --><!-- end .widget -->             
 
               </div>

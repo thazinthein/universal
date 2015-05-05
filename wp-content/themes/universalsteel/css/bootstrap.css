@@ -7153,3 +7153,34 @@ td.visible-print {
   .breadcurmb{display: none;}
 
 }
+
+
+@media (min-width: 1600px) {
+  .logo{}
+  
+  div.topnav div#mega-menu-wrap-primary ul.mega-sub-menu{
+    min-width: 1795px!important;    
+  }
+
+  .topnav div#mega-menu-wrap-primary ul#mega-menu-primary li ul.mega-sub-menu{
+    margin-left: -255px!important; 
+    overflow: hidden!important;
+    position: absolute!important;    
+    z-index: 9999!important;
+  }
+
+  .topnav div#mega-menu-wrap-primary ul#mega-menu-primary li ul.mega-sub-menu li{
+   padding-left: 255px!important;
+  }
+
+  .topnav div#mega-menu-wrap-primary ul#mega-menu-primary li ul.mega-sub-menu li.menu-item a{     
+    z-index: 9999!important;
+    position: relative!important;
+  }
+}
+
+@media only screen and (max-width : $responsive_breakpoint) {
+    #{$wrap} {
+        display: none;
+    }
+}

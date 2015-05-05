@@ -9,7 +9,7 @@ Template Name: Project Info
     
     <div class="row">
           <div class="col-md-12 pagehead-title-bg">
-        <img src="<?php bloginfo('template_directory');?>/images/pagehead_title_bg-right.png" class="img-responsive">
+        <img src="<?php bloginfo('template_directory');?>/images/pagehead_jobscope_bg-right.png" class="img-responsive">
         <div class="pagehead-title">          
             <h2>
               <?php
