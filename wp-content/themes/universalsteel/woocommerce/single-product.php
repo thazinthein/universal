@@ -20,7 +20,7 @@ get_header( 'shop' ); ?>
 	<div class="container">
 		
 		<div class="row">
-	        <div class="col-md-12 pagehead-title-bg">
+	        <div class="col-xs-12 pagehead-title-bg">
 				<img src="<?php bloginfo('template_directory');?>/images/pagehead_title_bg-right.png" class="img-responsive">
 				<div class="pagehead-title">
 					
@@ -42,7 +42,7 @@ get_header( 'shop' ); ?>
 <div class="container">
 	<div class="row">
 
-		<div class="col-md-10">			
+		<div class="col-xs-10">			
 			<?php
 			//$cats = get_terms( 'product_cat');
 			/*$args = array(
@@ -261,26 +261,28 @@ $terms = wp_get_post_terms( $post->ID, 'product_cat' );
 				//do_action( 'woocommerce_sidebar' );
 			?>
 		</div>
-		<div class="col-md-2">			
+		<div class="col-xs-2">			
 
 				<div id="sidebar" class="">
 							<div class="rightcol">			 				
 
 								<div id="recent-posts-3" class="widget widget_recent_entries">		
-									<h3 class="widgettitle">Products</h3>		
+									
 										<nav class="rightnav" role="navigation">
-											<?php echo do_shortcode('[accordionmenu id="uniqued1c3833" accordionmenu="225"]'); ?>			
+											<?php //echo do_shortcode('[accordionmenu id="uniqued1c3833" accordionmenu="225"]'); ?>			
+                                            <?php wp_nav_menu(array('menu'=> 'products categories'));?>
 										</nav>
 								</div> <!-- end .widget --><!-- end .widget -->							
 
 							</div>
 
-                            <div class="rightcol">                          
+                            <div class="rightcol">              
 
-                                <div class="contact-box">       
-                                    <h3>Contact Us</h3>
-                                    <div class="ph-no">(65) 6253 - 6001</div>
-                                </div> <!-- end .widget --><!-- end .widget -->                         
+                                <div class="contact-box">   
+                                  <h3>Contact Us</h3>
+                                  <div class="salesph-no"><h5>Sales</h5>(65) 6253-6001</div>
+                                  <div class="services-no"><h5>Services</h5>(65) 6280-7333</div>
+                                </div> <!-- end .widget --><!-- end .widget -->             
 
                             </div>
 				</div>

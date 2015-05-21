@@ -73,6 +73,9 @@ if($categoria->parent == 0){
 ?>
 
 <h1 itemprop="name" class="product_title entry-title"><?php echo $name; //echo the_title(); ?></h1>
+<?php do_action( 'woocommerce_archive_description' ); ?>
+
+
 
 <?php
 /**
@@ -126,9 +129,18 @@ $url = wp_get_attachment_url( $term_options['banner_url_id'] );
    echo "<div class=custom-img><img src='" . $url . "' class='category_banner_image' /></div>";
 
 ?>
-<?php echo '<ul class="wooc_sclist_top wooc_sclist"><li class="current"><a href="'. $origin_ancestor_term->slug .'">'.'All'.'</a></li></ul>';
+<?php 
+
+
+
+echo '<ul class="wooc_sclist_top wooc_sclist"><li class="current"><a href="'.get_option('home')."/product-category/". $origin_ancestor_term->slug .'">'.'All'.'</a></li></ul>';
         woocommerce_subcats_from_parentcat_by_ID( $ancestors[0]); ?>
+
+
 <?php
+$term =  get_the_terms( $post->ID, 'product_cat' );
+
+
 	/**
 	 * woocommerce_before_single_product hook
 	 *
@@ -143,7 +155,7 @@ $url = wp_get_attachment_url( $term_options['banner_url_id'] );
 
 ?>
 
-
+   
 <div itemscope itemtype="<?php echo woocommerce_get_product_schema(); ?>" id="product-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<?php

@@ -8,7 +8,7 @@ Template Name: Network
   <div class="container">
     
     <div class="row">
-          <div class="col-md-12 pagehead-title-bg">
+          <div class="col-xs-12 pagehead-title-bg">
         <img src="<?php bloginfo('template_directory');?>/images/pagehead_about_bg-right.png" class="img-responsive">
         <div class="pagehead-title">
           
@@ -35,7 +35,7 @@ Template Name: Network
 
 <div class="container">
   <div class="row">
-        <div class="col-md-10">
+        <div class="col-xs-10">
       <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
           
         <article class="post" id="post-<?php the_ID(); ?>">
@@ -58,7 +58,7 @@ Template Name: Network
       <?php endwhile; endif; ?>
     </div>
   
-    <div class="col-md-2">
+    <div class="col-xs-2">
         <div id="sidebar" class="">
               <div class="rightcol">              
 
@@ -74,7 +74,8 @@ Template Name: Network
 
                 <div class="contact-box">   
                   <h3>Contact Us</h3>
-                  <div class="ph-no">Sales : (65) 6253-6001<br> Services : (65) 6280-7333</div>
+                  <div class="salesph-no"><h5>Sales</h5>(65) 6253-6001</div>
+                  <div class="services-no"><h5>Services</h5>(65) 6280-7333</div>
                 </div> <!-- end .widget --><!-- end .widget -->             
 
               </div>

@@ -8,7 +8,7 @@ Template Name: Job Scope
   <div class="container">
     
     <div class="row">
-        <div class="col-xs-12 pagehead-title-bg">
+          <div class="col-xs-12 pagehead-title-bg">
         <img src="<?php bloginfo('template_directory');?>/images/pagehead_jobscope_bg-right.png" class="img-responsive">
         <div class="pagehead-title">          
             <h2>
@@ -43,8 +43,8 @@ Template Name: Job Scope
 
           <div class="entry aboutus">
 
-            <?php $id =7; $page_data = get_page($id);?>   
-            <h2><?php the_title(); ?></h2>                                                    
+            <?php $id =84; $page_data = get_page($id);?>   
+             <h2>Services</h2>                                                        
             <?php $post = get_page($id); $content = apply_filters('the_content', $post->post_content); echo $content; ?>           
 
           </div>
@@ -73,7 +73,8 @@ Template Name: Job Scope
 
                 <div class="contact-box">   
                   <h3>Contact Us</h3>
-                  <div class="ph-no">(65) 6253 - 6001</div>
+                  <div class="salesph-no"><h5>Sales</h5>(65) 6253-6001</div>
+                  <div class="services-no"><h5>Services</h5>(65) 6280-7333</div>
                 </div> <!-- end .widget --><!-- end .widget -->             
 
               </div>

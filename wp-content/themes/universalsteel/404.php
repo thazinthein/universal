@@ -9,7 +9,7 @@
   <div class="container">
     
     <div class="row">
-	        <div class="col-md-12 pagehead-title-bg">
+	        <div class="col-xs-12 pagehead-title-bg">
 				<img src="<?php bloginfo('template_directory');?>/images/pagehead_title_bg-right.png" class="img-responsive">
 				<div class="pagehead-title">
 					
@@ -30,7 +30,7 @@
 </div>
 
 <div class="container">
-	<div class="row">
+	<div class="col-xs-12">
 			<h2><?php _e('Error 404 - Page Not Found','html5reset'); ?></h2>
 	</div>
 </div>	

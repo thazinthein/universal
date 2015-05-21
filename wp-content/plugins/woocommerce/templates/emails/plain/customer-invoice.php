@@ -4,30 +4,27 @@
  *
  * @author		WooThemes
  * @package		WooCommerce/Templates/Emails/Plain
- * @version		2.2.0
+ * @version		2.0.0
  */
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
-}
+echo $email_heading . "\n\n";
 
-echo "= " . $email_heading . " =\n\n";
+if ( $order->status == 'pending' )
+	echo sprintf( __( 'An order has been created for you on %s. To pay for this order please use the following link: %s', 'woocommerce' ), get_bloginfo( 'name' ), $order->get_checkout_payment_url() ) . "\n\n";
 
-if ( $order->has_status( 'pending' ) )
-	echo sprintf( __( 'An order has been created for you on %s. To pay for this order please use the following link: %s', 'woocommerce' ), get_bloginfo( 'name', 'display' ), $order->get_checkout_payment_url() ) . "\n\n";
+echo "****************************************************\n\n";
 
-echo "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n\n";
+do_action( 'woocommerce_email_before_order_table', $order, false );
 
-do_action( 'woocommerce_email_before_order_table', $order, $sent_to_admin, $plain_text );
+echo sprintf( __( 'Order number: %s', 'woocommerce'), $order->get_order_number() ) . "\n";
+echo sprintf( __( 'Order date: %s', 'woocommerce'), date_i18n( woocommerce_date_format(), strtotime( $order->order_date ) ) ) . "\n";
 
-echo strtoupper( sprintf( __( 'Order number: %s', 'woocommerce' ), $order->get_order_number() ) ) . "\n";
-echo date_i18n( __( 'jS F Y', 'woocommerce' ), strtotime( $order->order_date ) ) . "\n";
-
-do_action( 'woocommerce_email_order_meta', $order, $sent_to_admin, $plain_text );
+do_action( 'woocommerce_email_order_meta', $order, false, true );
 
 echo "\n";
 
-switch ( $order->get_status() ) {
+switch ( $order->status ) {
 	case "completed" :
 		echo $order->email_order_items_table( $order->is_download_permitted(), false, true, '', '', true );
 	break;
@@ -39,7 +36,7 @@ switch ( $order->get_status() ) {
 	break;
 }
 
-echo "==========\n\n";
+echo "----------\n\n";
 
 if ( $totals = $order->get_order_item_totals() ) {
 	foreach ( $totals as $total ) {
@@ -47,8 +44,8 @@ if ( $totals = $order->get_order_item_totals() ) {
 	}
 }
 
-echo "\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n\n";
+echo "\n****************************************************\n\n";
 
-do_action( 'woocommerce_email_after_order_table', $order, $sent_to_admin, $plain_text );
+do_action( 'woocommerce_email_after_order_table', $order, false, true );
 
 echo apply_filters( 'woocommerce_email_footer_text', get_option( 'woocommerce_email_footer_text' ) );

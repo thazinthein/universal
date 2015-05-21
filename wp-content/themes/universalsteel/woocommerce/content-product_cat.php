@@ -26,18 +26,22 @@ if ( empty( $woocommerce_loop['columns'] ) )
 // Increase loop count
 $woocommerce_loop['loop']++;
 ?>
+
 <div class="productcatego-wrap">
+
 	<li class="product-category product<?php
 	    if ( ( $woocommerce_loop['loop'] - 1 ) % $woocommerce_loop['columns'] == 0 || $woocommerce_loop['columns'] == 1 )
 	        echo ' first';
 		if ( $woocommerce_loop['loop'] % $woocommerce_loop['columns'] == 0 )
 			echo ' last';
 		?>">
+	<div class="categ-row" style="">
 
 		<?php do_action( 'woocommerce_before_subcategory', $category ); ?>
 
-		<a href="<?php echo get_term_link( $category->slug, 'product_cat' ); ?>">
-
+		<div class="col-xs-2">
+			<a href="<?php echo get_term_link( $category->slug, 'product_cat' ); ?>">
+	
 			<?php
 				/**
 				 * woocommerce_before_subcategory_title hook
@@ -65,36 +69,55 @@ $woocommerce_loop['loop']++;
 						echo apply_filters( 'woocommerce_subcategory_count_html', '', $category );
 				?>
 			</h2>
+			</a>
+		</div>
 
-			<?php $wcatTerms = get_terms('product_cat', array('hide_empty' => 0, 'orderby' => 'ASC', 'parent' =>$category_id, )); 
-        	foreach($wcatTerms as $wcatTerm) : 
-        		$wthumbnail_id = get_woocommerce_term_meta( $wcatTerm->term_id, 'thumbnail_id', true );
-        	?>
+		<div class="col-xs-10">
+			
+				
+			<dl style="" class="subcate-img">
+			
+				
+				
+					<?php $wcatTerms = get_terms('product_cat', array('hide_empty' => 0, 'orderby' => 'ASC', 'parent' =>$category_id, )); 
+		        	foreach($wcatTerms as $wcatTerm) : 
+		        		$wthumbnail_id = get_woocommerce_term_meta( $wcatTerm->term_id, 'thumbnail_id', true );
+		        		$category_thumbnail = get_woocommerce_term_meta($wcatTerm->term_id, 'thumbnail_id', true);
+		        		$image = wp_get_attachment_url($category_thumbnail);
+		        		//echo "<a href=".get_term_link( $wcatTerm->slug, $wcatTerm->taxonomy, $wcatTerm->count );
+		        		echo '<dl class="subcate-logo" style=""><a href="'.get_term_link( $wcatTerm->slug, $wcatTerm->taxonomy, $wcatTerm->count ).'"><div class="subcat-inlogo"><img class="subcat-logo" src="'.$image.'"></div></a>';
+		        	?>
+		       
+		      
+		    	
+		    		
+		    			
+		    			<h3 class="text-center"><a href="<?php echo get_term_link( $wcatTerm->slug, $wcatTerm->taxonomy, $wcatTerm->count ); ?>"><?php echo $wcatTerm->name;//echo $wcatTerm->count; ?></a>
 
-    	<!--	<div class="shop-subcat">
-    			
-    			<h3 class="text-center"><a href="<?php echo get_term_link( $wcatTerm->slug, $wcatTerm->taxonomy, $wcatTerm->count ); ?>"><?php echo $wcatTerm->name;//echo $wcatTerm->count; ?></a>
+		    			</h3>
+		    		
+		    	
+		    	</dl>
+		    <?php endforeach; ?>
 
-    			</h3>
-    		</div>-->
+		    </dl>
 
-    <?php endforeach; ?>
-
-
-   
-    	
+		   
+		    	
 
 
-			<?php
-				/**
-				 * woocommerce_after_subcategory_title hook
-				 */
-				do_action( 'woocommerce_after_subcategory_title', $category );
-			?>
+					<?php
+						/**
+						 * woocommerce_after_subcategory_title hook
+						 */
+						do_action( 'woocommerce_after_subcategory_title', $category );
+					?>
+				
+				
+			
 
-		</a>
-
+		</div>
 		<?php do_action( 'woocommerce_after_subcategory', $category ); ?>
-
+	</div>
 	</li>
 </div>

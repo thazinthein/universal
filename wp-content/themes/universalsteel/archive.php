@@ -6,63 +6,125 @@
  */
  get_header(); ?>
 
+<div class="pagehead">
+	<div class="container">
+		
+		<div class="row">
+	        <div class="col-xs-12 pagehead-title-bg">
+				<img src="<?php bloginfo('template_directory');?>/images/pagehead_news_bg-right.png" class="img-responsive">
+				<div class="pagehead-title">
+					
+						<h2><?php the_title(); ?></h2>
+						<?php do_action( 'woocommerce_archive_description' ); ?>
+				</div>
+			</div>
+			
+		</div>
+		
+		<div class="row breadcurmb">
+			<div class="" id="breadcrumb">
+					<?php woocommerce_breadcrumb(); ?>
+				</div>
+		</div>
+
+	</div>
+</div>
+
+
  	<main id="content">
 			
-    	<div class="body container">
-  			<div class="col-md-12">    		
+    	<div class="container">
+			<div class="row">
+		        <div class="col-xs-10 archive">  		
 
-				<?php if (have_posts()) : ?>
+						<?php if (have_posts()) : ?>
 
-		 			<?php $post = $posts[0]; // Hack. Set $post so that the_date() works. ?>
+				 			<?php $post = $posts[0]; // Hack. Set $post so that the_date() works. ?>
 
-					<?php /* If this is a category archive */ if (is_category()) { ?>
-						
+							<?php /* If this is a category archive */ if (is_category()) { ?>
+								
 
-					<?php /* If this is a tag archive */ } elseif( is_tag() ) { ?>
-						<h2><?php _e('Posts Tagged','html5reset'); ?> &#8216;<?php single_tag_title(); ?>&#8217;</h2>
+							<?php /* If this is a tag archive */ } elseif( is_tag() ) { ?>
+								<h2><?php _e('Posts Tagged','html5reset'); ?> &#8216;<?php single_tag_title(); ?>&#8217;</h2>
 
-					<?php /* If this is a daily archive */ } elseif (is_day()) { ?>
-						<h2><?php _e('Archive for','html5reset'); ?> <?php the_time('F jS, Y'); ?></h2>
+							<?php /* If this is a daily archive */ } elseif (is_day()) { ?>
+								<h2><?php _e('Archive for','html5reset'); ?> <?php the_time('F jS, Y'); ?></h2>
 
-					<?php /* If this is a monthly archive */ } elseif (is_month()) { ?>
-						<h2><?php _e('Archive for','html5reset'); ?> <?php the_time('F, Y'); ?></h2>
+							<?php /* If this is a monthly archive */ } elseif (is_month()) { ?>
+								<h2><?php _e('Archive for','html5reset'); ?> <?php the_time('F, Y'); ?></h2>
 
-					<?php /* If this is a yearly archive */ } elseif (is_year()) { ?>
-						<h2 class="pagetitle"><?php _e('Archive for','html5reset'); ?> <?php the_time('Y'); ?></h2>
+							<?php /* If this is a yearly archive */ } elseif (is_year()) { ?>
+								<h2 class="pagetitle"><?php _e('Archive for','html5reset'); ?> <?php the_time('Y'); ?></h2>
 
-					<?php /* If this is an author archive */ } elseif (is_author()) { ?>
-						<h2 class="pagetitle"><?php _e('Author Archive','html5reset'); ?></h2>
+							<?php /* If this is an author archive */ } elseif (is_author()) { ?>
+								<h2 class="pagetitle"><?php _e('Author Archive','html5reset'); ?></h2>
 
-					<?php /* If this is a paged archive */ } elseif (isset($_GET['paged']) && !empty($_GET['paged'])) { ?>
-						<h2 class="pagetitle"><?php _e('Blog Archives','html5reset'); ?></h2>
-					
-					<?php } ?>
-
-					<?php post_navigation(); ?>
-
-					<?php while (have_posts()) : the_post(); ?>
-					
-						<article <?php post_class() ?>>
-						
-								<h2 id="post-<?php the_ID(); ?>"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
+							<?php /* If this is a paged archive */ } elseif (isset($_GET['paged']) && !empty($_GET['paged'])) { ?>
+								<h2 class="pagetitle"><?php _e('Blog Archives','html5reset'); ?></h2>
 							
-								<div class="post-stmp"><?php posted_on(); ?></div>
+							<?php } ?>
 
-								<div class="entry">
-									<p class = "recent-post"><?php the_excerpt(__('(more…)')); ?></p>
-								</div>
+							<?php post_navigation(); ?>
 
-						</article>
+							<?php while (have_posts()) : the_post(); ?>
+							
+								<article <?php post_class() ?>>
+								
+										<h2 id="post-<?php the_ID(); ?>"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
+									
+										<div class="post-stmp"><?php posted_on(); ?></div>
 
-				<?php endwhile; ?>
+										<div class="entry">
+										<?php
+											if ( has_post_thumbnail() ) {
+												the_post_thumbnail();
+											} 
+											//the_content();
+										?>
+											<p class = "recent-post"><?php the_excerpt(__('(more…)')); ?></p><hr>
+										</div>
 
-				<?php post_navigation(); ?>
-				
-			<?php else : ?>
+								</article>
 
-				<h2><?php _e('Nothing Found','html5reset'); ?></h2>
+						<?php endwhile; ?>
 
-			<?php endif; ?>
+						<?php post_navigation(); ?>
+						
+					<?php else : ?>
+
+						<h2><?php _e('Nothing Found','html5reset'); ?></h2>
+
+					<?php endif; ?>
+
+				</div>
+
+				<div class="col-xs-2">      
+
+				        <div id="sidebar" class="">
+					            <div class="rightcol">              
+
+					                <div id="recent-posts-3" class="widget widget_recent_entries">    
+					                    
+					                    <nav class="rightnav" role="navigation">
+					                      <?php //echo do_shortcode('[accordionmenu id="uniqued1c3833" accordionmenu="225"]'); ?>     
+					                      <?php wp_nav_menu(array('menu'=> 'products categories'));?>
+					                    </nav>
+					            	</div> <!-- end .widget --><!-- end .widget -->             
+
+				              	</div>
+
+				              	<div class="rightcol">              
+
+					                <div class="contact-box">   
+					                  <h3>Contact Us</h3>
+					                  <div class="salesph-no"><h5>Sales</h5>(65) 6253-6001</div>
+					                  <div class="services-no"><h5>Services</h5>(65) 6280-7333</div>
+					                </div> <!-- end .widget --><!-- end .widget -->             
+
+					            </div>
+				        </div>
+				</div>
+
 
 			</div>
 		</div>

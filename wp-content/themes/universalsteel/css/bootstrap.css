@@ -7123,14 +7123,20 @@ td.visible-print {
 }
 
 
-@media (min-width : 768px) and (max-width : 968px) {
+@media (min-width : 768px) and (max-width : 968px) {  
   
-  
+}
+
+
+@media (min-width : 768px) and (max-width : 1024px) {
+  .container {
+    width: 970px!important;
+  }
 }
 
 @media (max-width : 600px){
   
-.logo{border:1px solid red;}
+.logo{}
 .topnav{
   float: left!important;  
 }
@@ -7159,14 +7165,18 @@ td.visible-print {
   .logo{}
   
   div.topnav div#mega-menu-wrap-primary ul.mega-sub-menu{
-    min-width: 1795px!important;    
+    min-width: 1795px!important;   
+   
+   
+    
   }
 
   .topnav div#mega-menu-wrap-primary ul#mega-menu-primary li ul.mega-sub-menu{
     margin-left: -255px!important; 
     overflow: hidden!important;
-    position: absolute!important;    
-    z-index: 9999!important;
+    position: absolute!important;
+    
+     z-index: 9999!important;
   }
 
   .topnav div#mega-menu-wrap-primary ul#mega-menu-primary li ul.mega-sub-menu li{
@@ -7177,10 +7187,4 @@ td.visible-print {
     z-index: 9999!important;
     position: relative!important;
   }
-}
-
-@media only screen and (max-width : $responsive_breakpoint) {
-    #{$wrap} {
-        display: none;
-    }
 }

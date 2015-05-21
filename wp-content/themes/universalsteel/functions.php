@@ -328,7 +328,7 @@ function new_excerpt_more( $more )
     }
     // enable wordpress to trim rea more the_content or the_excerpt
     function new_excerpt_length($length) {
-      return 70;
+      return 30;
     }
     add_filter('excerpt_length', 'new_excerpt_length');
 
@@ -476,7 +476,7 @@ $subcats = get_categories($args);
 echo '<ul class="wooc_sclist">';
  
 foreach ($subcats as $sc) {
- 
+     
        $link = get_term_link( $sc->slug, $sc->taxonomy );
  
 echo '<li><a href="'. $link .'">'.$sc->name.'</a></li>';
@@ -484,7 +484,6 @@ echo '<li><a href="'. $link .'">'.$sc->name.'</a></li>';
      }
  
 echo '</ul>';
- 
 }
 
 function woocommerce_subcats_from_parentcat_by_NAME($parent_cat_NAME) {
@@ -741,5 +740,49 @@ function setAndViewPostViews($postID) {
     }
     return $count; /* so you can show it */
 }
+
+
+ function comment_validation_init() {
+    if( comments_open() ) { ?>        
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+    <script type="text/javascript">
+    jQuery(document).ready(function($) {
+    $('#commentform').validate({
+
+    rules: {
+      author: {
+        required: true,
+        minlength: 2
+      },
+
+      email: {
+        required: true,
+        email: true
+      },
+
+      comment: {
+        required: true,
+        minlength: 20
+      }
+    },
+
+    messages: {
+      author: "Please fill the required field",
+      email: "Please enter a valid email address.",
+      comment: "Please fill the required field"
+    },
+
+    errorElement: "span",
+    errorPlacement: function(error, element) {
+      element.after(error);
+    }
+
+    });
+    });
+    </script>
+    <?php
+    }
+    }
+    add_action('wp_footer', 'comment_validation_init');
 
 ?>

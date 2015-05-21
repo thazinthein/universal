@@ -42,13 +42,16 @@ Template Name: Catalog
 
                     
 
-          <div class="entry exclusive-brand">
+          <div class="entry">
 
             <?php $id =90; $page_data = get_page($id);?>   
             <h2><?php the_title(); ?></h2>                                                    
             <?php $post = get_page($id); $content = apply_filters('the_content', $post->post_content); echo $content; ?>           
 
           </div>
+
+          
+
 
           <?php edit_post_link(__('Edit this entry','html5reset'), '<p>', '</p>'); ?>
 
@@ -74,7 +77,8 @@ Template Name: Catalog
 
                 <div class="contact-box">   
                   <h3>Contact Us</h3>
-                  <div class="ph-no">Sales : (65) 6253-6001<br> Services : (65) 6280-7333</div>
+                  <div class="salesph-no"><h5>Sales</h5>(65) 6253-6001</div>
+                  <div class="services-no"><h5>Services</h5>(65) 6280-7333</div>
                 </div> <!-- end .widget --><!-- end .widget -->             
 
               </div>

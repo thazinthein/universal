@@ -40,15 +40,75 @@ Copyright© 2015 Universal Steel Industries Pte Ltd. All right reserved
 <!-- this is where we put our custom functions -->
 
 <script src="<?php bloginfo('template_directory'); ?>/functions.php"></script>
+
+<script src="<?php bloginfo('template_url'); ?>/tab/jquery-ui.js"></script>
 <!--<script>window.jQuery || document.write('<script src="<?php bloginfo('template_directory'); ?>/js/jquery.min.js"><\/script>');</script>
 <script src="<?php bloginfo('template_directory'); ?>/js/modernizr.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
+<script type='text/javascript'>//<![CDATA[ 
 
+  /*$(document).ready(function () {
+        // number of records per page
+        var pageSize = 8;
+        // reset current page counter on load
+        $("#hdnActivePage").val(1);
+        // calculate number of pages
+        var numberOfPages = $('table tr').length / pageSize;
+        numberOfPages = numberOfPages.toFixed();
+        // action on 'next' click
+        $("a.next").on('click', function () {
+            // show only the necessary rows based upon activePage and Pagesize
+            $("table tr:nth-child(-n+" + (($("#hdnActivePage").val() * pageSize) + pageSize) + ")").show();
+            $("table tr:nth-child(-n+" + $("#hdnActivePage").val() * pageSize + ")").hide();
+            var currentPage = Number($("#hdnActivePage").val());
+            // update activepage
+            $("#hdnActivePage").val(Number($("#hdnActivePage").val()) + 1);
+            // check if previous page button is necessary (not on first page)
+            if ($("#hdnActivePage").val() != "1") {
+                $("a.previous").show();
+                $("span").show();
+            }
+            // check if next page button is necessary (not on last page)
+            if ($("#hdnActivePage").val() == numberOfPages) {
+                $("a.next").hide();
+                $("span").hide();
+            }
+        });
+        // action on 'previous' click
+        $("a.previous").on('click', function () {
+            var currentPage = Number($("#hdnActivePage").val());
+            $("#hdnActivePage").val(currentPage - 1);
+            // first hide all rows
+            $("table tr").hide();
+            // and only turn on visibility on necessary rows
+            $("table tr:nth-child(-n+" + ($("#hdnActivePage").val() * pageSize) + ")").show();
+            $("table tr:nth-child(-n+" + (($("#hdnActivePage").val() * pageSize) - pageSize) + ")").hide();
+            // check if previous button is necessary (not on first page)
+            if ($("#hdnActivePage").val() == "1") {
+                $("a.previous").hide();
+                $("span").hide();
+            } 
+            // check if next button is necessary (not on last page)
+            if ($("#hdnActivePage").val() < numberOfPages) {
+                $("a.next").show();
+                $("span").show();
+            } 
+            if ($("#hdnActivePage").val() == 1) {
+                $("span").hide();
+            }
+        });
+    });    
+//]]> */ 
 
+</script>
+<script>
+/*$('#target').click(function() {
+   localStorage.setItem('counter', ++counter);
+    $('#output').html(function(i, val) { return val*1+1 });
+});*/
+</script>
 
 <script>
-
-
 $('table.paginated').each(function() {
     var currentPage = 0;
     var numPerPage = 5;

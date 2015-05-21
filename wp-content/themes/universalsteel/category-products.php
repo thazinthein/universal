@@ -69,11 +69,11 @@ Template Name: Category-Products
 
                         <div class="contact-box">   
                           <h3>Contact Us</h3>
-                          <div class="ph-no">(65) 6253 - 6001</div>
+                          <div class="salesph-no"><h5>Sales</h5>(65) 6253-6001</div>
+                          <div class="services-no"><h5>Services</h5>(65) 6280-7333</div>
                         </div> <!-- end .widget --><!-- end .widget -->             
 
                       </div>
-                </div>
         </div>
       </div>
 </div>

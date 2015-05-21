@@ -4,17 +4,18 @@
  *
  * @author 		WooThemes
  * @package 	WooCommerce/Templates/Emails/Plain
- * @version     2.2.0
+ * @version     2.0.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-echo "\n" . strtoupper( __( 'Billing address', 'woocommerce' ) ) . "\n\n";
-echo preg_replace( '#<br\s*/?>#i', "\n", $order->get_formatted_billing_address() ) . "\n";
+echo "\n" . __( 'Billing address', 'woocommerce' ) . ":\n";
+echo $order->get_formatted_billing_address() . "\n\n";
 
-if ( ! wc_ship_to_billing_address_only() && $order->needs_shipping_address() && ( $shipping = $order->get_formatted_shipping_address() ) ) {
-	echo "\n" . strtoupper( __( 'Shipping address', 'woocommerce' ) ) . "\n\n";
-	echo preg_replace( '#<br\s*/?>#i', "\n\t", $shipping ) . "\n";
-}
+if ( get_option( 'woocommerce_ship_to_billing_address_only' ) == 'no' && ( $shipping = $order->get_formatted_shipping_address() ) ) :
+
+	echo __( 'Shipping address', 'woocommerce' ) . ":\n";
+
+	echo $shipping . "\n\n";
+
+endif;

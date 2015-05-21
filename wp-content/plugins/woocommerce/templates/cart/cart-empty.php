@@ -17,4 +17,4 @@ wc_print_notices();
 
 <?php do_action( 'woocommerce_cart_is_empty' ); ?>
 
-<p class="return-to-shop"><a class="btn btn-3 btn-3a return-btn" href="../products-page/"><?php _e( '&larr; Return To Products', 'woocommerce' ) ?></a></p>
+<p class="return-to-shop"><a class="btn btn-3 btn-3a return-btn" href="../products-categories/"><?php _e( '&larr; Return To Products', 'woocommerce' ) ?></a></p>
