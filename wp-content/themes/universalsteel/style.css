@@ -1019,9 +1019,13 @@ table.brandslogo td{
 
 .aboutus p,.aboutus{
 	color: #666;
-    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-family: Arial,Helvetica,sans-serif;
     text-align: justify;
     font-size: 12px;
+}
+
+.aboutus div#tabs-4 p{
+	line-height: 28px;
 }
 
 .aboutus h2,.contactus h2 {
