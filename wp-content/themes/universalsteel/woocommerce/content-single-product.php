@@ -74,9 +74,6 @@ if($categoria->parent == 0){
 
 <h1 itemprop="name" class="product_title entry-title"><?php echo $name; //echo the_title(); ?></h1>
 <?php do_action( 'woocommerce_archive_description' ); ?>
-
-
-
 <?php
 /**
  * The template for displaying product content in the single-product.php template

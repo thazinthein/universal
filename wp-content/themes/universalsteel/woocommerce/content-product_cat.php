@@ -85,8 +85,7 @@ $woocommerce_loop['loop']++;
 		        		$category_thumbnail = get_woocommerce_term_meta($wcatTerm->term_id, 'thumbnail_id', true);
 		        		$image = wp_get_attachment_url($category_thumbnail);
 		        		//echo "<a href=".get_term_link( $wcatTerm->slug, $wcatTerm->taxonomy, $wcatTerm->count );
-		        		echo '<dl class="subcate-logo" style=""><a href="'.get_term_link( $wcatTerm->slug, $wcatTerm->taxonomy, $wcatTerm->count ).'"><div class="subcat-inlogo"><img class="subcat-logo" src="'.$image.'"></div></a>';
-		        	?>
+		        		echo '<dl class="subcate-logo" style=""><a href="'.get_term_link( $wcatTerm->slug, $wcatTerm->taxonomy, $wcatTerm->count ).'"><div class="subcat-inlogo"><img class="subcat-logo" src="'.$image.'"></div></a>';      	?>
 		       
 		      
 		    	

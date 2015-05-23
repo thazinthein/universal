@@ -44,9 +44,9 @@ Template Name: Catalog-Category
 
           <div class="entry">
 
-            <?php $id =900; $page_data = get_page($id);?>   
+     <!--       <?php $id =900; $page_data = get_page($id);?>   
             <h2><?php the_title(); ?></h2>                                                    
-            <?php $post = get_page($id); $content = apply_filters('the_content', $post->post_content); echo $content; ?>           
+            <?php $post = get_page($id); $content = apply_filters('the_content', $post->post_content); echo $content; ?>         -->  
 
           </div>
 
